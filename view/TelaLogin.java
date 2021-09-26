@@ -73,7 +73,7 @@ public class TelaLogin implements ActionListener {
 		this.getBtnEntrar().addActionListener(this);
 		this.getBtnCancelar().addActionListener(this);
 		
-		//Permitindo que a JFrame fique visível
+		//Permitindo que a JFrame fique visível e centralizada
 		this.frmTelaLogin.setLocationRelativeTo(null);
 		this.frmTelaLogin.setVisible(true);
 	}
@@ -89,7 +89,9 @@ public class TelaLogin implements ActionListener {
 			String senha = new String(this.getCampoSenha().getPassword());
 			
 			if (cpf.equals("12345678900") && senha.equals("login")) {
-				//IMPLEMENTAR A FUNÇÃO AQUI!
+				this.getFrmTelaLogin().setVisible(false);
+				this.getFrmTelaMenuProduto().setVisible(false);
+				//Abra a tela de cadastro do produto (nova JFrame)
 			} else {
 				JOptionPane.showMessageDialog(null, "Login não validado!", "", JOptionPane.ERROR_MESSAGE);
 			}
@@ -104,30 +106,30 @@ public class TelaLogin implements ActionListener {
 	
 	//Métodos acessores
 	public JFrame getFrmTelaLogin() {
-		return frmTelaLogin;
+		return this.frmTelaLogin;
 	}
 	public JLabel getLblAviso() {
-		return lblAviso;
+		return this.lblAviso;
 	}
 	public JLabel getLblCPF() {
-		return lblCPF;
+		return this.lblCPF;
 	}
 	public JLabel getLblSenha() {
-		return lblSenha;
+		return this.lblSenha;
 	}
 	public JTextField getTxtCPF() {
-		return txtCPF;
+		return this.txtCPF;
 	}
 	public JPasswordField getCampoSenha() {
-		return campoSenha;
+		return this.campoSenha;
 	}
 	public JButton getBtnEntrar() {
-		return btnEntrar;
+		return this.btnEntrar;
 	}
 	public JButton getBtnCancelar() {
-		return btnCancelar;
+		return this.btnCancelar;
 	}
 	public JFrame getFrmTelaMenuProduto() {
-		return frmTelaMenuProduto;
+		return this.frmTelaMenuProduto;
 	}
 }
