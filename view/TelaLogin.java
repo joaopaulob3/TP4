@@ -3,6 +3,8 @@ package view;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -28,9 +30,9 @@ public class TelaLogin implements ActionListener {
 		//Configura os componentes da JFrame Tela de login
 		this.frmTelaMenuProduto = telaMenuProduto;
 		this.frmTelaLogin.setBounds(100, 100, 389, 262);
-		this.frmTelaLogin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.frmTelaLogin.getContentPane().setLayout(null);
 		this.frmTelaLogin.setLocationRelativeTo(null);
+		this.frmTelaLogin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		//Configura o label de aviso
 		this.lblAviso.setFont(new Font("Tahoma", Font.ITALIC, 11));
@@ -73,7 +75,7 @@ public class TelaLogin implements ActionListener {
 		this.getBtnEntrar().addActionListener(this);
 		this.getBtnCancelar().addActionListener(this);
 		
-		//Permitindo que a JFrame fique visível e centralizada
+		//Permitindo que a JFrame fique centralizada e visível
 		this.frmTelaLogin.setLocationRelativeTo(null);
 		this.frmTelaLogin.setVisible(true);
 	}
@@ -88,10 +90,11 @@ public class TelaLogin implements ActionListener {
 			String cpf = this.getTxtCPF().getText();
 			String senha = new String(this.getCampoSenha().getPassword());
 			
-			if (cpf.equals("12345678900") && senha.equals("login")) {
-				this.getFrmTelaLogin().setVisible(false);
-				this.getFrmTelaMenuProduto().setVisible(false);
-				//Abra a tela de cadastro do produto (nova JFrame)
+			//Se o login for validado, o sistema direciona para a tela de cadastro do produto
+			if (cpf.equals("login") && senha.equals("login")) {
+				this.getFrmTelaLogin().dispose();
+				this.getFrmTelaMenuProduto().dispose();
+				new TelaCadastrarProduto(this.getFrmTelaMenuProduto());
 			} else {
 				JOptionPane.showMessageDialog(null, "Login não validado!", "", JOptionPane.ERROR_MESSAGE);
 			}
@@ -99,7 +102,7 @@ public class TelaLogin implements ActionListener {
 		
 		//Inicia os eventos sobre o botão Cancelar
 		if (botao == this.getBtnCancelar()) {
-			this.getFrmTelaLogin().setVisible(false);
+			this.getFrmTelaLogin().dispose();
 			this.getFrmTelaMenuProduto().setVisible(true);
 		}
 	}

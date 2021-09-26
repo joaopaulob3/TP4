@@ -29,7 +29,7 @@ public class TelaMenuInicial implements ActionListener {
 		this.frmMenuInicial.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
-				int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente sair?", null,
+				int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente encerrar o programa?", null,
 						JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 				if (resposta == JOptionPane.YES_OPTION) {
 					System.exit(0);
@@ -42,26 +42,27 @@ public class TelaMenuInicial implements ActionListener {
 		this.lblTituloInicial.setBounds(255, 24, 192, 59);
 		this.frmMenuInicial.getContentPane().add(lblTituloInicial);
 
-		//Configura o Botão para iniciar eventos sobre Produto
+		//Configura o Botão Produto
 		this.btnProduto.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		this.btnProduto.setBounds(200, 120, 274, 47);
 		this.frmMenuInicial.getContentPane().add(btnProduto);
 
-		//Configura o Botão para iniciar eventos sobre Cliente
+		//Configura o Botão Cliente
 		this.btnCliente.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		this.btnCliente.setBounds(200, 193, 274, 47);
 		this.frmMenuInicial.getContentPane().add(btnCliente);
 
-		//Configura o Botão para iniciar eventos sobre Compra
+		//Configura o Botão Compra
 		this.btnCompra.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		this.btnCompra.setBounds(201, 262, 274, 47);
 		this.frmMenuInicial.getContentPane().add(btnCompra);
 
-		//Permitindo que a JFrame fique visível e centralizada
+		//Permitindo que a JFrame fique centralizada e visível
 		this.frmMenuInicial.setLocationRelativeTo(null);
 		this.frmMenuInicial.setVisible(true);
 	}
 
+	//Tema-estilo do Netbeans
 	public static void alterarEstiloGUI() {
 		try {
 			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -83,7 +84,7 @@ public class TelaMenuInicial implements ActionListener {
 		//Inicia a aplicação através do Construtor
 		TelaMenuInicial menu = new TelaMenuInicial();
 
-		//Direciona e configura os eventos dos botões
+		//Direciona os eventos dos botões
 		menu.getBtnProduto().addActionListener(menu);
 		menu.getBtnCliente().addActionListener(menu);
 		menu.getBtnCompra().addActionListener(menu);
@@ -95,7 +96,7 @@ public class TelaMenuInicial implements ActionListener {
 		JButton botao = (JButton) e.getSource();
 		
 		//Oculta o menu inical
-		this.frmMenuInicial.setVisible(false);
+		this.getFrmMenuInicial().dispose();
 		
 		//Inicia os eventos sobre o botão de Produto
 		if (botao == this.getBtnProduto()) {

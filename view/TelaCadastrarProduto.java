@@ -22,13 +22,14 @@ public class TelaCadastrarProduto implements ActionListener {
 	private JButton btnCondicionador = new JButton("Condicionador");
 	private JButton btnSaboneteLiquido = new JButton("Sabonete L\u00EDquido");
 	private JButton btnVoltar = new JButton("Voltar");
-	private JFrame frmProduto;
+	private JFrame frmMenuProduto;
 	
 	//Construtor
-	public TelaCadastrarProduto(JFrame frmProduto) {
+	public TelaCadastrarProduto(JFrame frmMenuProduto) {
 		//Configura os componentes da JFrame da tela de cadastro de produto
-		this.frmProduto = frmProduto;
+		this.frmMenuProduto = frmMenuProduto;
 		this.frmCadastrarProduto.setBounds(100, 100, 534, 451);
+		this.frmCadastrarProduto.getContentPane().setLayout(null);
 		this.frmCadastrarProduto.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		this.frmCadastrarProduto.addWindowListener(new WindowAdapter() {
 			@Override
@@ -40,7 +41,6 @@ public class TelaCadastrarProduto implements ActionListener {
 				}
 			}
 		});
-		this.frmCadastrarProduto.getContentPane().setLayout(null);
 		
 		//Configura o label título da pergunta
 		this.lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -92,7 +92,7 @@ public class TelaCadastrarProduto implements ActionListener {
 		this.getBtnSaboneteLiquido().addActionListener(this);
 		this.getBtnVoltar().addActionListener(this);
 		
-		//Permitindo que a JFrame fique visível
+		//Permite que a JFrame fique centralizada e visível
 		this.frmCadastrarProduto.setLocationRelativeTo(null);
 		this.frmCadastrarProduto.setVisible(true);
 	}
@@ -102,20 +102,43 @@ public class TelaCadastrarProduto implements ActionListener {
 		//Armazena o botão escolhido
 		JButton botao = (JButton) e.getSource();
 		
+		//Oculta a tela de Cadastrar Produto
+		this.getFrmCadastrarProduto().dispose();
+		
 		//Inicia os eventos sobre o cadastro de perfume
+		if (botao == this.getBtnPerfume()) {
+			new TelaCadastroPerfume(this.getFrmCadastrarProduto());
+		}
 		
 		//Inicia os eventos sobre o cadastro de hidratante
+		if (botao == this.getBtnHidratante()) {
+			
+		}
 		
 		//Inicia os eventos sobre o cadastro de protetor solar
+		if (botao == this.getBtnProtetorSolar()) {
+			
+		}
 		
 		//Inicia os eventos sobre o cadastro de shampoo
+		if (botao == this.getBtnShampoo()) {
+			
+		}
 		
 		//Inicia os eventos sobre o cadastro de condicionador
+		if (botao == this.getBtnCondicionador()) {
+			
+		}
 		
 		//Inicia os eventos sobre o cadastro de sabonete líquido
+		if (botao == this.getBtnSaboneteLiquido()) {
+			
+		}
 		
 		//Inicia os eventos sobre o botão voltar
-		
+		if (botao == this.getBtnVoltar()) {
+			this.getFrmMenuProduto().setVisible(true);
+		}
 	}
 	
 	//Métodos acessores
@@ -146,8 +169,8 @@ public class TelaCadastrarProduto implements ActionListener {
 	public JButton getBtnVoltar() {
 		return btnVoltar;
 	}
-	public JFrame getFrmProduto() {
-		return frmProduto;
+	public JFrame getFrmMenuProduto() {
+		return frmMenuProduto;
 	}
 	
 }
