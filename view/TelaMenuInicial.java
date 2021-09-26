@@ -11,9 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-public class TelaMenuInicial extends JFrame implements ActionListener {
-	// Atributos
-	private static final long serialVersionUID = 1L;
+public class TelaMenuInicial implements ActionListener {
+	//Atributos
 	private JFrame frmMenuInicial = new JFrame("Menu Inicial");
 	private JLabel lblTituloInicial = new JLabel("Loja de Perfumes");
 	private JButton btnProduto = new JButton("Produto");
@@ -58,7 +57,7 @@ public class TelaMenuInicial extends JFrame implements ActionListener {
 		this.btnCompra.setBounds(201, 262, 274, 47);
 		this.frmMenuInicial.getContentPane().add(btnCompra);
 
-		//Permitindo que a JFrame fique visível
+		//Permitindo que a JFrame fique visível e centralizada
 		this.frmMenuInicial.setLocationRelativeTo(null);
 		this.frmMenuInicial.setVisible(true);
 	}
@@ -102,6 +101,7 @@ public class TelaMenuInicial extends JFrame implements ActionListener {
 		if (botao == this.getBtnProduto()) {
 			new TelaMenuProduto(this.getFrmMenuInicial());
 		}
+		
 		
 		//Inicia os eventos sobre o botão Cliente
 		if (botao == this.getBtnCliente()) {

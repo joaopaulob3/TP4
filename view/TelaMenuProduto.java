@@ -19,11 +19,11 @@ public class TelaMenuProduto implements ActionListener {
 	private JButton btnListarDadosProduto = new JButton("Listar dados dos produtos");
 	private JButton btnDeletarUmProduto = new JButton("Deletar um produto");
 	private JButton btnVoltar = new JButton("Voltar");
-	private JFrame telaMenuInicial;
+	private JFrame frmTelaMenuInicial;
 	
 	public TelaMenuProduto(JFrame telaMenuInicial) {
 		//Configura os componentes da JFrame da tela Produto
-		this.telaMenuInicial = telaMenuInicial;
+		this.frmTelaMenuInicial = telaMenuInicial;
 		this.frmProduto.setBounds(100, 100, 651, 409);
 		this.frmProduto.getContentPane().setLayout(null);
 		this.frmProduto.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -60,7 +60,7 @@ public class TelaMenuProduto implements ActionListener {
 		
 		//Configura o botão para iniciar eventos sobre deleção de um produto
 		this.btnDeletarUmProduto.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		this.btnDeletarUmProduto.setBounds(112, 270, 405, 40);
+		this.btnDeletarUmProduto.setBounds(112, 270, 405, 47);
 		this.frmProduto.getContentPane().add(btnDeletarUmProduto);
 		this.frmProduto.setResizable(false);
 		
@@ -77,7 +77,7 @@ public class TelaMenuProduto implements ActionListener {
 		this.btnDeletarUmProduto.addActionListener(this);
 		this.btnVoltar.addActionListener(this);
 		
-		//Permitindo que a JFrame fique visível
+		//Permitindo que a JFrame fique visível e centralizada
 		this.frmProduto.setLocationRelativeTo(null);
 		this.frmProduto.setVisible(true);
 	}
@@ -89,7 +89,7 @@ public class TelaMenuProduto implements ActionListener {
 		
 		//Inicia os eventos sobre o cadastro de um produto
 		if (botao == this.getBtnCadastrarProduto()) {
-			
+			new TelaLogin(this.getFrmProduto());
 		}
 		
 		//Inicia os eventos sobre o estoque
@@ -115,7 +115,7 @@ public class TelaMenuProduto implements ActionListener {
 		//Inicia os eventos sobre o botão voltar
 		if (botao == this.getBtnVoltar()) {
 			this.getFrmProduto().setVisible(false);
-			this.getTelaMenuInicial().setVisible(true);
+			this.getFrmTelaMenuInicial().setVisible(true);
 		}
 	}
 	
@@ -141,8 +141,8 @@ public class TelaMenuProduto implements ActionListener {
 	public JButton getBtnVoltar() {
 		return btnVoltar;
 	}
-	public JFrame getTelaMenuInicial() {
-		return telaMenuInicial;
+	public JFrame getFrmTelaMenuInicial() {
+		return frmTelaMenuInicial;
 	}
 
 }
