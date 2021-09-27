@@ -99,8 +99,12 @@ public class TelaLogin implements ActionListener {
 				//Oculta as janelas de Login e MenuProduto
 				this.getFrmTelaLogin().dispose();
 				this.getFrmTelaMenuProduto().dispose();
+				//Chama a tela de cadastrar produto
 				if (this.getOpcao() == 1) {
 					new TelaCadastrarProduto(this.getFrmTelaMenuProduto());
+				//Chama a tela de alteração de estoque de um produto
+				} else if (this.getOpcao() == 2) {
+					new TelaAlteracaoEstoque(this.getFrmTelaMenuProduto());
 				}
 			} else {
 				JOptionPane.showMessageDialog(null, "Login não validado!", "", JOptionPane.ERROR_MESSAGE);

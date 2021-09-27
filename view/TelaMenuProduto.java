@@ -98,6 +98,7 @@ public class TelaMenuProduto implements ActionListener {
 		//Inicia os eventos sobre o estoque
 		if (botao == this.getBtnAumentarOuDiminuirEstoque()) {
 			opcao = 2;
+			new TelaLogin(this.getfrmMenuProduto(), opcao);
 		}
 		
 		//Inicia os eventos sobre a edição de informações de um produto
