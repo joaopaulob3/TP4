@@ -122,7 +122,7 @@ public class TelaCadastrarProduto implements ActionListener {
 		
 		//Inicia os eventos sobre o cadastro de shampoo
 		if (botao == this.getBtnShampoo()) {
-			
+			new TelaCadastrarShampoo(this.getFrmCadastrarProduto());
 		}
 		
 		//Inicia os eventos sobre o cadastro de condicionador

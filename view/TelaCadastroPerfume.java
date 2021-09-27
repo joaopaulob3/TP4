@@ -20,7 +20,7 @@ public class TelaCadastroPerfume implements ActionListener {
 	private JFrame frmCadastrarPerfume = new JFrame("Cadastro de Perfume");
 	private JLabel lblPreco = new JLabel("Pre\u00E7o do perfume: R$");
 	private JTextField txtPreco = new JTextField();
-	private JLabel lblVolume = new JLabel("Volume o perfume: (ml)");
+	private JLabel lblVolume = new JLabel("Volume do perfume: (ml)");
 	private JTextField txtVolume = new JTextField();
 	private JLabel lblCodigo = new JLabel("C\u00F3digo do perfume:");
 	private JTextField txtCodigo = new JTextField();

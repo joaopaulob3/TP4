@@ -20,7 +20,7 @@ public class TelaCadastroHidratante implements ActionListener {
 	private JFrame frmCadastrarHidratante = new JFrame("Cadastro de Hidratante");
 	private JLabel lblPreco = new JLabel("Pre\u00E7o do hidratante: R$");
 	private JTextField txtPreco = new JTextField();
-	private JLabel lblVolume = new JLabel("Volume o hidratante: (ml)");
+	private JLabel lblVolume = new JLabel("Volume do hidratante: (ml)");
 	private JTextField txtVolume = new JTextField();
 	private JLabel lblCodigo = new JLabel("C\u00F3digo do hidratante:");
 	private JTextField txtCodigo = new JTextField();
