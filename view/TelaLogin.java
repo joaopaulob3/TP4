@@ -103,7 +103,6 @@ public class TelaLogin implements ActionListener {
 		//Inicia os eventos sobre o botão Cancelar
 		if (botao == this.getBtnCancelar()) {
 			this.getFrmTelaLogin().dispose();
-			this.getFrmTelaMenuProduto().setVisible(true);
 		}
 	}
 	

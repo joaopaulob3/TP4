@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import controller.ConjuntoPerfumaria;
-import model.LerDados;
 import model.Perfumaria;
 
 public class TelaCadastroPerfume implements ActionListener {
@@ -188,7 +187,39 @@ public class TelaCadastroPerfume implements ActionListener {
 		
 		//Inicia os eventos sobre o botão cadastrar
 		if (botao == this.getBtnCadastrar()) {
-			//Armazena os valores com as devidas conversões
+			//Validação dos campos
+			if (this.getTxtPreco().getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Não deixe nenhum campo em branco!", "", JOptionPane.WARNING_MESSAGE);
+				this.getTxtPreco().requestFocusInWindow();
+			} else if (this.getTxtVolume().getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Não deixe nenhum campo em branco!", "", JOptionPane.WARNING_MESSAGE);
+				this.getTxtVolume().requestFocusInWindow();
+			} else if (this.getTxtCodigo().getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Não deixe nenhum campo em branco!", "", JOptionPane.WARNING_MESSAGE);
+				this.getTxtCodigo().requestFocusInWindow();
+			} else if (this.getTxtMarca().getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Não deixe nenhum campo em branco!", "", JOptionPane.WARNING_MESSAGE);
+				this.getTxtMarca().requestFocusInWindow();
+			} else if (this.getTxtLinha().getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Não deixe nenhum campo em branco!", "", JOptionPane.WARNING_MESSAGE);
+				this.getTxtLinha().requestFocusInWindow();
+			} else if (this.getTxtEstoque().getText().isEmpty()) {
+				this.getTxtEstoque().requestFocusInWindow();
+			} else if (this.getTxtCategoria().getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Não deixe nenhum campo em branco!", "", JOptionPane.WARNING_MESSAGE);
+				this.getTxtCategoria().requestFocusInWindow();
+			} else if (this.getTxtPropriedades().getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Não deixe nenhum campo em branco!", "", JOptionPane.WARNING_MESSAGE);
+				this.getTxtPropriedades().requestFocusInWindow();
+			} else if (this.getTxtFamilia().getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Não deixe nenhum campo em branco!", "", JOptionPane.WARNING_MESSAGE);
+				this.getTxtFamilia().requestFocusInWindow();
+			} else if (this.getTxtSubfamilia().getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Não deixe nenhum campo em branco!", "", JOptionPane.WARNING_MESSAGE);
+				this.getTxtSubfamilia().requestFocusInWindow();
+			}
+			
+			//Armazena os valores com as devidas conversões e tratamentos
 			double preco = Double.valueOf(this.getTxtPreco().getText()).doubleValue();
 			double volume = Double.valueOf(this.getTxtVolume().getText()).doubleValue();
 			String codigo = this.getTxtCodigo().getText();
@@ -206,20 +237,21 @@ public class TelaCadastroPerfume implements ActionListener {
 			
 			//Adicionando o objeto criado no ArrayList listaPerfumes
 			ConjuntoPerfumaria.cadastrarPerfume(perfume);
-			
+		
+			//Mensagem de cadastro bem sucedido
 			JOptionPane.showMessageDialog(null, "Perfume cadastrado!", "", JOptionPane.INFORMATION_MESSAGE);
 			
 			//Oculta a tela de CadastroPerfume
 			this.getFrmCadastrarPerfume().dispose();
 			
 			//Torna a tela MenuProduto visível
-			this.getFrmProduto().setVisible(true);
+			this.getFrmCadastrarProduto().setVisible(true);
 		}
 		
 		//Inicia os eventos sobre o botão cancelar
 		if (botao == this.getBtnCancelar()) {
 			this.getFrmCadastrarPerfume().dispose();
-			this.getFrmProduto().setVisible(true);
+			this.getFrmCadastrarProduto().setVisible(true);
 		}
 	}
 	
@@ -316,7 +348,7 @@ public class TelaCadastroPerfume implements ActionListener {
 		return this.btnCancelar;
 	}
 	
-	public JFrame getFrmProduto() {
+	public JFrame getFrmCadastrarProduto() {
 		return this.frmCadastrarProduto;
 	}
 }

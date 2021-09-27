@@ -112,7 +112,7 @@ public class TelaCadastrarProduto implements ActionListener {
 		
 		//Inicia os eventos sobre o cadastro de hidratante
 		if (botao == this.getBtnHidratante()) {
-			
+			new TelaCadastroHidratante(this.getFrmCadastrarProduto());
 		}
 		
 		//Inicia os eventos sobre o cadastro de protetor solar
