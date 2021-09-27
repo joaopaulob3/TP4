@@ -42,7 +42,7 @@ public class TelaCadastrarShampoo implements ActionListener {
 	
 	//Construtor
 	public TelaCadastrarShampoo(JFrame frmCadastrarProduto) {
-		//Configura os componentes da JFrame da tela de cadastro de hidratante
+		//Configura os componentes da JFrame da tela de cadastro de shampoo
 		this.frmCadastrarProduto = frmCadastrarProduto;
 		this.frmCadastrarShampoo.setBounds(100, 100, 539, 488);
 		this.frmCadastrarShampoo.getContentPane().setLayout(null);

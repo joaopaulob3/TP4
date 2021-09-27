@@ -12,39 +12,41 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import controller.ConjuntoHidratante;
-import model.Hidratante;
+import controller.ConjuntoProtetorSolar;
+import model.ProtetorSolar;
 
-public class TelaCadastroHidratante implements ActionListener {
+public class TelaCadastrarProtetorSolar implements ActionListener {
 	//Atributos
-	private JFrame frmCadastrarHidratante = new JFrame("Cadastro de Hidratante");
-	private JLabel lblPreco = new JLabel("Pre\u00E7o do hidratante: R$");
+	private JFrame frmCadastrarProtetorSolar = new JFrame("Cadastro de Hidratante");
+	private JLabel lblPreco = new JLabel("Pre\u00E7o do protetor solar: R$");
 	private JTextField txtPreco = new JTextField();
-	private JLabel lblVolume = new JLabel("Volume do hidratante: (ml)");
+	private JLabel lblVolume = new JLabel("Volume do protetor solar: (ml)");
 	private JTextField txtVolume = new JTextField();
-	private JLabel lblCodigo = new JLabel("C\u00F3digo do hidratante:");
+	private JLabel lblCodigo = new JLabel("C\u00F3digo do protetor solar:");
 	private JTextField txtCodigo = new JTextField();
-	private JLabel lblMarca = new JLabel("Marca do hidratante:");
+	private JLabel lblMarca = new JLabel("Marca do protetor solar:");
 	private JTextField txtMarca = new JTextField();
-	private JLabel lblLinha = new JLabel("Linha do hidratante:");
+	private JLabel lblLinha = new JLabel("Linha do protetor solar:");
 	private JTextField txtLinha = new JTextField();
 	private JLabel lblEstoque = new JLabel("Quantidade em estoque:");
 	private JTextField txtEstoque = new JTextField();
-	private JLabel lblTipoDePele = new JLabel("Tipo de pele do hidratante:");
-	private JTextField txtTipoDePele = new JTextField();
+	private JLabel lblPropriedades = new JLabel("Propridades do protetor solar:");
+	private JTextField txtPropriedades = new JTextField();
+	private JLabel lblFPS = new JLabel("FPS do protetor solar:");
+	private JTextField txtFPS = new JTextField();
 	private JButton btnCadastrar = new JButton("Cadastrar");
 	private JButton btnCancelar = new JButton("Cancelar");
 	private JFrame frmCadastrarProduto;
 	
 	//Construtor
-	public TelaCadastroHidratante(JFrame frmCadastrarProduto) {
+	public TelaCadastrarProtetorSolar(JFrame frmCadastrarProduto) {
 		//Configura os componentes da JFrame da tela de cadastro de hidratante
 		this.frmCadastrarProduto = frmCadastrarProduto;
-		this.frmCadastrarHidratante.setBounds(100, 100, 537, 430);
-		this.frmCadastrarHidratante.getContentPane().setLayout(null);
-		this.frmCadastrarHidratante.setResizable(false);
-		this.frmCadastrarHidratante.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		this.frmCadastrarHidratante.addWindowListener(new WindowAdapter() {
+		this.frmCadastrarProtetorSolar.setBounds(100, 100, 539, 464);
+		this.frmCadastrarProtetorSolar.getContentPane().setLayout(null);
+		this.frmCadastrarProtetorSolar.setResizable(false);
+		this.frmCadastrarProtetorSolar.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		this.frmCadastrarProtetorSolar.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente encerrar o programa?", null,
@@ -55,95 +57,104 @@ public class TelaCadastroHidratante implements ActionListener {
 			}
 		});
 		
-		//Configura o label preço do hidratante
+		//Configura o label preço do protetor solar
 		this.lblPreco.setFont(new Font("Tahoma", Font.BOLD, 12));
-		this.lblPreco.setBounds(27, 43, 159, 27);
-		this.frmCadastrarHidratante.getContentPane().add(lblPreco);
+		this.lblPreco.setBounds(27, 43, 177, 27);
+		this.frmCadastrarProtetorSolar.getContentPane().add(lblPreco);
 		
-		//Configura o campo de texto do preço do hidratante
+		//Configura o campo de texto preço do protetor solar
 		this.txtPreco.setBounds(230, 43, 253, 27);
-		this.frmCadastrarHidratante.getContentPane().add(txtPreco);
+		this.frmCadastrarProtetorSolar.getContentPane().add(txtPreco);
 		this.txtPreco.setColumns(10);
 		
-		//Configura o label volume do hidratante
+		//Configura o label volume do protetor solar
 		this.lblVolume.setFont(new Font("Tahoma", Font.BOLD, 12));
 		this.lblVolume.setBounds(27, 84, 193, 27);
-		this.frmCadastrarHidratante.getContentPane().add(lblVolume);
+		this.frmCadastrarProtetorSolar.getContentPane().add(lblVolume);
 		
-		//Configura o campo de texto do volume do hidratante
+		//Configura o campo de texto volume do protetor solar
 		this.txtVolume.setColumns(10);
 		this.txtVolume.setBounds(230, 83, 253, 27);
-		this.frmCadastrarHidratante.getContentPane().add(txtVolume);
+		this.frmCadastrarProtetorSolar.getContentPane().add(txtVolume);
 		
-		//Configura o label do código do hidratante
+		//Configura o label código do protetor solar
 		this.lblCodigo.setFont(new Font("Tahoma", Font.BOLD, 12));
-		this.lblCodigo.setBounds(27, 126, 147, 27);
-		this.frmCadastrarHidratante.getContentPane().add(lblCodigo);
+		this.lblCodigo.setBounds(27, 126, 177, 27);
+		this.frmCadastrarProtetorSolar.getContentPane().add(lblCodigo);
 		
-		//Configura o campo de texto do código do hidratante
+		//Configura o campo de texto código do protetor solar
 		this.txtCodigo.setColumns(10);
 		this.txtCodigo.setBounds(230, 125, 253, 27);
-		this.frmCadastrarHidratante.getContentPane().add(txtCodigo);
+		this.frmCadastrarProtetorSolar.getContentPane().add(txtCodigo);
 		
-		//Configura o label marca do hidratante
+		//Configura o label marca do protetor solar
 		this.lblMarca.setFont(new Font("Tahoma", Font.BOLD, 12));
-		this.lblMarca.setBounds(27, 165, 147, 27);
-		this.frmCadastrarHidratante.getContentPane().add(lblMarca);
+		this.lblMarca.setBounds(27, 165, 177, 27);
+		this.frmCadastrarProtetorSolar.getContentPane().add(lblMarca);
 		
-		//Configura o campo de texto marca do hidratante
+		//Configura o campo de texto marca do protetor solar
 		this.txtMarca.setColumns(10);
 		this.txtMarca.setBounds(230, 164, 253, 27);
-		this.frmCadastrarHidratante.getContentPane().add(txtMarca);
+		this.frmCadastrarProtetorSolar.getContentPane().add(txtMarca);
 		
-		//Configura o label linha do hidratante
+		//Configura o label linha do protetor solar
 		this.lblLinha.setFont(new Font("Tahoma", Font.BOLD, 12));
-		this.lblLinha.setBounds(27, 204, 147, 27);
-		this.frmCadastrarHidratante.getContentPane().add(lblLinha);
+		this.lblLinha.setBounds(27, 204, 159, 27);
+		this.frmCadastrarProtetorSolar.getContentPane().add(lblLinha);
 		
-		//Configura o campo de texto linha do hidratante
+		//Configura o campo de texto linha do protetor solar
 		this.txtLinha.setColumns(10);
 		this.txtLinha.setBounds(230, 203, 253, 27);
-		this.frmCadastrarHidratante.getContentPane().add(txtLinha);
+		this.frmCadastrarProtetorSolar.getContentPane().add(txtLinha);
 		
-		//Configura o label de estoque do hidratante
+		//Configura o label de estoque do protetor solar
 		this.lblEstoque.setFont(new Font("Tahoma", Font.BOLD, 12));
 		this.lblEstoque.setBounds(27, 238, 159, 32);
-		this.frmCadastrarHidratante.getContentPane().add(lblEstoque);
+		this.frmCadastrarProtetorSolar.getContentPane().add(lblEstoque);
 		
-		//Configura o campo de texto do estoque do hidratante
+		//Configura o campo de texto de estoque do protetor solar
 		this.txtEstoque.setColumns(10);
 		this.txtEstoque.setBounds(230, 241, 253, 27);
-		this.frmCadastrarHidratante.getContentPane().add(txtEstoque);
+		this.frmCadastrarProtetorSolar.getContentPane().add(txtEstoque);
 		
-		//Configura o label tipo de pele do hidratante
-		this.lblTipoDePele.setFont(new Font("Tahoma", Font.BOLD, 12));
-		this.lblTipoDePele.setBounds(27, 278, 177, 32);
-		this.frmCadastrarHidratante.getContentPane().add(lblTipoDePele);
+		//Configura o label propriedades do protetor solar
+		this.lblPropriedades.setFont(new Font("Tahoma", Font.BOLD, 12));
+		this.lblPropriedades.setBounds(27, 278, 193, 32);
+		this.frmCadastrarProtetorSolar.getContentPane().add(lblPropriedades);
 		
-		//Configura o campo de texto tipo de pele do hidratante
-		this.txtTipoDePele.setColumns(10);
-		this.txtTipoDePele.setBounds(230, 279, 253, 27);
-		this.frmCadastrarHidratante.getContentPane().add(txtTipoDePele);
+		//Configura o campo de texto propriedades do protetor solar
+		this.txtPropriedades.setColumns(10);
+		this.txtPropriedades.setBounds(230, 279, 253, 27);
+		this.frmCadastrarProtetorSolar.getContentPane().add(txtPropriedades);
 		
+		//Configura o label FPS do protetor solar
+		this.lblFPS.setFont(new Font("Tahoma", Font.BOLD, 12));
+		this.lblFPS.setBounds(27, 313, 193, 32);
+		this.frmCadastrarProtetorSolar.getContentPane().add(lblFPS);
+		
+		//Configura o campo de texto FPS do protetor solar
+		this.txtFPS.setColumns(10);
+		this.txtFPS.setBounds(230, 317, 253, 27);
+		this.frmCadastrarProtetorSolar.getContentPane().add(txtFPS);
+				
 		//Configura o botão cadastrar
 		this.btnCadastrar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		this.btnCadastrar.setBounds(230, 327, 110, 32);
-		this.frmCadastrarHidratante.getContentPane().add(btnCadastrar);
+		this.btnCadastrar.setBounds(230, 370, 110, 32);
+		this.frmCadastrarProtetorSolar.getContentPane().add(btnCadastrar);
 		
 		//Configura o botão cancelar
 		this.btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		this.btnCancelar.setBounds(373, 326, 110, 32);
-		this.frmCadastrarHidratante.getContentPane().add(btnCancelar);
-		
+		this.btnCancelar.setBounds(373, 369, 110, 32);
+		this.frmCadastrarProtetorSolar.getContentPane().add(btnCancelar);
+	
 		//Direciona os eventos dos botões
 		this.getBtnCadastrar().addActionListener(this);
 		this.getBtnCancelar().addActionListener(this);
 		
 		//Permite que a JFrame fique centralizada e visível
-		this.frmCadastrarHidratante.setLocationRelativeTo(null);
-		this.frmCadastrarHidratante.setVisible(true);
+		this.frmCadastrarProtetorSolar.setLocationRelativeTo(null);
+		this.frmCadastrarProtetorSolar.setVisible(true);
 	}
-	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -170,9 +181,12 @@ public class TelaCadastroHidratante implements ActionListener {
 				this.getTxtLinha().requestFocusInWindow();
 			} else if (this.getTxtEstoque().getText().isEmpty()) {
 				this.getTxtEstoque().requestFocusInWindow();
-			} else if (this.getTxtTipoDePele().getText().isEmpty()) {
+			} else if (this.getTxtPropriedades().getText().isEmpty()) {
 				JOptionPane.showMessageDialog(null, "Não deixe nenhum campo em branco!", "", JOptionPane.WARNING_MESSAGE);
-				this.getTxtTipoDePele().requestFocusInWindow();
+				this.getTxtPropriedades().requestFocusInWindow();
+			} else if (this.getTxtFPS().getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Não deixe nenhum campo em branco!", "", JOptionPane.WARNING_MESSAGE);
+				this.getTxtFPS().requestFocusInWindow();
 			}
 			
 			//Armazena os valores com as devidas conversões e tratamentos
@@ -182,20 +196,21 @@ public class TelaCadastroHidratante implements ActionListener {
 			String marca = this.getTxtMarca().getText();
 			String linha = this.getTxtLinha().getText();
 			int quantidade = Integer.valueOf(this.getTxtEstoque().getText()).intValue();
-			String tipo = this.getTxtTipoDePele().getText();
+			String propriedades = this.getTxtPropriedades().getText();
+			int fps = Integer.valueOf(this.getTxtFPS().getText()).intValue();
 			
-			//Criação do objeto do tipo Hidratante através do Construtor
-			Hidratante hidratante = new Hidratante(preco, volume, codigo, marca, linha,
-					quantidade,tipo);
+			//Criação do objeto do tipo ProtetorSolar através do Construtor
+			ProtetorSolar protetor = new ProtetorSolar(preco, volume, codigo, marca,
+					linha, quantidade, propriedades, fps);
 			
-			//Adicionando o objeto criado no ArrayList listaHidratantes
-			ConjuntoHidratante.cadastrarHidratante(hidratante);
+			//Adicionando o objeto criado no ArrayList listaProtetorSolar
+			ConjuntoProtetorSolar.cadastrarProtetorSolar(protetor);
 		
 			//Mensagem de cadastro bem sucedido
-			JOptionPane.showMessageDialog(null, "Hidratante cadastrado!", "", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Protetor solar cadastrado!", "", JOptionPane.INFORMATION_MESSAGE);
 			
-			//Oculta a tela de CadastroHidratante
-			this.getFrmCadastrarHidratante().dispose();
+			//Oculta a tela de CadastroProtetorSolar
+			this.getFrmCadastrarProtetorSolar().dispose();
 			
 			//Torna a tela MenuProduto visível
 			this.getFrmCadastrarProduto().setVisible(true);
@@ -203,14 +218,14 @@ public class TelaCadastroHidratante implements ActionListener {
 		
 		//Inicia os eventos sobre o botão cancelar
 		if (botao == this.getBtnCancelar()) {
-			this.getFrmCadastrarHidratante().dispose();
+			this.getFrmCadastrarProtetorSolar().dispose();
 			this.getFrmCadastrarProduto().setVisible(true);
 		}
 	}
 	
 	//Métodos acessores
-	public JFrame getFrmCadastrarHidratante() {
-		return frmCadastrarHidratante;
+	public JFrame getFrmCadastrarProtetorSolar() {
+		return frmCadastrarProtetorSolar;
 	}
 
 	public JLabel getLblPreco() {
@@ -261,12 +276,20 @@ public class TelaCadastroHidratante implements ActionListener {
 		return txtEstoque;
 	}
 
-	public JLabel getLblTipoDePele() {
-		return lblTipoDePele;
+	public JLabel getLblPropriedades() {
+		return lblPropriedades;
 	}
 
-	public JTextField getTxtTipoDePele() {
-		return txtTipoDePele;
+	public JTextField getTxtPropriedades() {
+		return txtPropriedades;
+	}
+
+	public JLabel getLblFPS() {
+		return lblFPS;
+	}
+
+	public JTextField getTxtFPS() {
+		return txtFPS;
 	}
 
 	public JButton getBtnCadastrar() {
@@ -280,4 +303,5 @@ public class TelaCadastroHidratante implements ActionListener {
 	public JFrame getFrmCadastrarProduto() {
 		return frmCadastrarProduto;
 	}
+	
 }

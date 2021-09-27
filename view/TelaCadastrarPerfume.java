@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 import controller.ConjuntoPerfumaria;
 import model.Perfumaria;
 
-public class TelaCadastroPerfume implements ActionListener {
+public class TelaCadastrarPerfume implements ActionListener {
 	//Atributos
 	private JFrame frmCadastrarPerfume = new JFrame("Cadastro de Perfume");
 	private JLabel lblPreco = new JLabel("Pre\u00E7o do perfume: R$");
@@ -43,7 +43,7 @@ public class TelaCadastroPerfume implements ActionListener {
 	private JFrame frmCadastrarProduto;
 	
 	//Construtor
-	public TelaCadastroPerfume(JFrame frmCadastrarProduto) {
+	public TelaCadastrarPerfume(JFrame frmCadastrarProduto) {
 		//Configura os componentes da JFrame da tela de cadastro de perfume
 		this.frmCadastrarProduto = frmCadastrarProduto;
 		this.frmCadastrarPerfume.setBounds(100, 100, 538, 524);

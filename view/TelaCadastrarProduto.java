@@ -107,17 +107,17 @@ public class TelaCadastrarProduto implements ActionListener {
 		
 		//Inicia os eventos sobre o cadastro de perfume
 		if (botao == this.getBtnPerfume()) {
-			new TelaCadastroPerfume(this.getFrmCadastrarProduto());
+			new TelaCadastrarPerfume(this.getFrmCadastrarProduto());
 		}
 		
 		//Inicia os eventos sobre o cadastro de hidratante
 		if (botao == this.getBtnHidratante()) {
-			new TelaCadastroHidratante(this.getFrmCadastrarProduto());
+			new TelaCadastrarHidratante(this.getFrmCadastrarProduto());
 		}
 		
 		//Inicia os eventos sobre o cadastro de protetor solar
 		if (botao == this.getBtnProtetorSolar()) {
-			new TelaCadastroProtetorSolar(this.getFrmCadastrarProduto());
+			new TelaCadastrarProtetorSolar(this.getFrmCadastrarProduto());
 		}
 		
 		//Inicia os eventos sobre o cadastro de shampoo
@@ -127,7 +127,7 @@ public class TelaCadastrarProduto implements ActionListener {
 		
 		//Inicia os eventos sobre o cadastro de condicionador
 		if (botao == this.getBtnCondicionador()) {
-			
+			new TelaCadastrarCondicionador(this.getFrmCadastrarProduto());
 		}
 		
 		//Inicia os eventos sobre o cadastro de sabonete líquido

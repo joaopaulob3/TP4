@@ -12,41 +12,43 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import controller.ConjuntoProtetorSolar;
-import model.ProtetorSolar;
+import controller.ConjuntoCondicionador;
+import model.Condicionador;
 
-public class TelaCadastroProtetorSolar implements ActionListener {
+public class TelaCadastrarCondicionador implements ActionListener {
 	//Atributos
-	private JFrame frmCadastrarProtetorSolar = new JFrame("Cadastro de Hidratante");
-	private JLabel lblPreco = new JLabel("Pre\u00E7o do protetor solar: R$");
+	private JFrame frmCadastrarCondicionador = new JFrame("Cadastro de condicionador");
+	private JLabel lblPreco = new JLabel("Pre\u00E7o do condicionador: R$"); 
 	private JTextField txtPreco = new JTextField();
-	private JLabel lblVolume = new JLabel("Volume do protetor solar: (ml)");
+	private JLabel lblVolume = new JLabel("Volume do condicionador: (ml)");
 	private JTextField txtVolume = new JTextField();
-	private JLabel lblCodigo = new JLabel("C\u00F3digo do protetor solar:");
+	private JLabel lblCodigo = new JLabel("C\u00F3digo do condicionador:");
 	private JTextField txtCodigo = new JTextField();
-	private JLabel lblMarca = new JLabel("Marca do protetor solar:");
+	private JLabel lblMarca = new JLabel("Marca do condicionador:");
 	private JTextField txtMarca = new JTextField();
-	private JLabel lblLinha = new JLabel("Linha do protetor solar:");
+	private JLabel lblLinha = new JLabel("Linha do condicionador:");
 	private JTextField txtLinha = new JTextField();
 	private JLabel lblEstoque = new JLabel("Quantidade em estoque:");
 	private JTextField txtEstoque = new JTextField();
-	private JLabel lblPropriedades = new JLabel("Propridades do protetor solar:");
+	private JLabel lblTipo = new JLabel("Tipo de cabelo do condicionador:");
+	private JTextField txtTipo = new JTextField();
+	private JLabel lblPropriedades = new JLabel("Propridades do condicionador:");
 	private JTextField txtPropriedades = new JTextField();
-	private JLabel lblFPS = new JLabel("FPS do protetor solar:");
-	private JTextField txtFPS = new JTextField();
+	private JLabel lblCondicao = new JLabel("Condi\u00E7\u00E3o dos fios:");
+	private JTextField txtCondicao = new JTextField();
 	private JButton btnCadastrar = new JButton("Cadastrar");
 	private JButton btnCancelar = new JButton("Cancelar");
 	private JFrame frmCadastrarProduto;
 	
 	//Construtor
-	public TelaCadastroProtetorSolar(JFrame frmCadastrarProduto) {
-		//Configura os componentes da JFrame da tela de cadastro de hidratante
+	public TelaCadastrarCondicionador(JFrame frmCadastrarProduto) {
+		//Configura os componentes da JFrame da tela de cadastro de condicionador
 		this.frmCadastrarProduto = frmCadastrarProduto;
-		this.frmCadastrarProtetorSolar.setBounds(100, 100, 539, 464);
-		this.frmCadastrarProtetorSolar.getContentPane().setLayout(null);
-		this.frmCadastrarProtetorSolar.setResizable(false);
-		this.frmCadastrarProtetorSolar.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		this.frmCadastrarProtetorSolar.addWindowListener(new WindowAdapter() {
+		this.frmCadastrarCondicionador.setBounds(100, 100, 539, 488);
+		this.frmCadastrarCondicionador.getContentPane().setLayout(null);
+		this.frmCadastrarCondicionador.setResizable(false);
+		this.frmCadastrarCondicionador.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		this.frmCadastrarCondicionador.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente encerrar o programa?", null,
@@ -57,105 +59,115 @@ public class TelaCadastroProtetorSolar implements ActionListener {
 			}
 		});
 		
-		//Configura o label preço do protetor solar
+		//Configura o label preço do condicionador
 		this.lblPreco.setFont(new Font("Tahoma", Font.BOLD, 12));
 		this.lblPreco.setBounds(27, 43, 177, 27);
-		this.frmCadastrarProtetorSolar.getContentPane().add(lblPreco);
+		this.frmCadastrarCondicionador.getContentPane().add(lblPreco);
 		
-		//Configura o campo de texto preço do protetor solar
+		//Configura o campo de texto preço do condicionador
 		this.txtPreco.setBounds(230, 43, 253, 27);
-		this.frmCadastrarProtetorSolar.getContentPane().add(txtPreco);
+		this.frmCadastrarCondicionador.getContentPane().add(txtPreco);
 		this.txtPreco.setColumns(10);
 		
-		//Configura o label volume do protetor solar
+		//Configura o label volume do condicionador
 		this.lblVolume.setFont(new Font("Tahoma", Font.BOLD, 12));
 		this.lblVolume.setBounds(27, 84, 193, 27);
-		this.frmCadastrarProtetorSolar.getContentPane().add(lblVolume);
+		this.frmCadastrarCondicionador.getContentPane().add(lblVolume);
 		
-		//Configura o campo de texto volume do protetor solar
+		//Configura o campo de texto volume do condicionador
 		this.txtVolume.setColumns(10);
 		this.txtVolume.setBounds(230, 83, 253, 27);
-		this.frmCadastrarProtetorSolar.getContentPane().add(txtVolume);
+		this.frmCadastrarCondicionador.getContentPane().add(txtVolume);
 		
-		//Configura o label código do protetor solar
+		//Configura o label código do condicionador
 		this.lblCodigo.setFont(new Font("Tahoma", Font.BOLD, 12));
 		this.lblCodigo.setBounds(27, 126, 177, 27);
-		this.frmCadastrarProtetorSolar.getContentPane().add(lblCodigo);
+		this.frmCadastrarCondicionador.getContentPane().add(lblCodigo);
 		
-		//Configura o campo de texto código do protetor solar
+		//Configura o campo de texto código do condicionador
 		this.txtCodigo.setColumns(10);
 		this.txtCodigo.setBounds(230, 125, 253, 27);
-		this.frmCadastrarProtetorSolar.getContentPane().add(txtCodigo);
+		this.frmCadastrarCondicionador.getContentPane().add(txtCodigo);
 		
-		//Configura o label marca do protetor solar
+		//Configura o label marca do condicionador
 		this.lblMarca.setFont(new Font("Tahoma", Font.BOLD, 12));
 		this.lblMarca.setBounds(27, 165, 177, 27);
-		this.frmCadastrarProtetorSolar.getContentPane().add(lblMarca);
+		this.frmCadastrarCondicionador.getContentPane().add(lblMarca);
 		
-		//Configura o campo de texto marca do protetor solar
+		//Configura o campo de texto marca do condicionador
 		this.txtMarca.setColumns(10);
 		this.txtMarca.setBounds(230, 164, 253, 27);
-		this.frmCadastrarProtetorSolar.getContentPane().add(txtMarca);
+		this.frmCadastrarCondicionador.getContentPane().add(txtMarca);
 		
-		//Configura o label linha do protetor solar
+		//Configura o label linha do condicionador
 		this.lblLinha.setFont(new Font("Tahoma", Font.BOLD, 12));
 		this.lblLinha.setBounds(27, 204, 159, 27);
-		this.frmCadastrarProtetorSolar.getContentPane().add(lblLinha);
+		this.frmCadastrarCondicionador.getContentPane().add(lblLinha);
 		
-		//Configura o campo de texto linha do protetor solar
+		//Configura o campo de texto linha do condicionador
 		this.txtLinha.setColumns(10);
 		this.txtLinha.setBounds(230, 203, 253, 27);
-		this.frmCadastrarProtetorSolar.getContentPane().add(txtLinha);
+		this.frmCadastrarCondicionador.getContentPane().add(txtLinha);
 		
-		//Configura o label de estoque do protetor solar
+		//Configura o estoque do condicionador
 		this.lblEstoque.setFont(new Font("Tahoma", Font.BOLD, 12));
 		this.lblEstoque.setBounds(27, 238, 159, 32);
-		this.frmCadastrarProtetorSolar.getContentPane().add(lblEstoque);
+		this.frmCadastrarCondicionador.getContentPane().add(lblEstoque);
 		
-		//Configura o campo de texto de estoque do protetor solar
+		//Configura o campo de texto do estoque do condicionador
 		this.txtEstoque.setColumns(10);
 		this.txtEstoque.setBounds(230, 241, 253, 27);
-		this.frmCadastrarProtetorSolar.getContentPane().add(txtEstoque);
+		this.frmCadastrarCondicionador.getContentPane().add(txtEstoque);
 		
-		//Configura o label propriedades do protetor solar
+		//Configura o label tipo de cabelo do condicionador
+		this.lblTipo.setFont(new Font("Tahoma", Font.BOLD, 12));
+		this.lblTipo.setBounds(27, 273, 193, 32);
+		this.frmCadastrarCondicionador.getContentPane().add(lblTipo);
+		
+		//Configura o campo de texto tipo de cabelo do condicionador
+		this.txtTipo.setColumns(10);
+		this.txtTipo.setBounds(230, 277, 253, 27);
+		this.frmCadastrarCondicionador.getContentPane().add(txtTipo);
+		
+		//Configura o label propriedades do condicionador
 		this.lblPropriedades.setFont(new Font("Tahoma", Font.BOLD, 12));
-		this.lblPropriedades.setBounds(27, 278, 193, 32);
-		this.frmCadastrarProtetorSolar.getContentPane().add(lblPropriedades);
+		this.lblPropriedades.setBounds(27, 313, 193, 32);
+		this.frmCadastrarCondicionador.getContentPane().add(lblPropriedades);
 		
-		//Configura o campo de texto propriedades do protetor solar
+		//Configura o campo de texto propriedades do condicionador
 		this.txtPropriedades.setColumns(10);
-		this.txtPropriedades.setBounds(230, 279, 253, 27);
-		this.frmCadastrarProtetorSolar.getContentPane().add(txtPropriedades);
+		this.txtPropriedades.setBounds(230, 314, 253, 27);
+		this.frmCadastrarCondicionador.getContentPane().add(txtPropriedades);
 		
-		//Configura o label FPS do protetor solar
-		this.lblFPS.setFont(new Font("Tahoma", Font.BOLD, 12));
-		this.lblFPS.setBounds(27, 313, 193, 32);
-		this.frmCadastrarProtetorSolar.getContentPane().add(lblFPS);
+		//Configura o label condição dos fios
+		this.lblCondicao.setFont(new Font("Tahoma", Font.BOLD, 12));
+		this.lblCondicao.setBounds(27, 354, 193, 32);
+		this.frmCadastrarCondicionador.getContentPane().add(lblCondicao);
 		
-		//Configura o campo de texto FPS do protetor solar
-		this.txtFPS.setColumns(10);
-		this.txtFPS.setBounds(230, 317, 253, 27);
-		this.frmCadastrarProtetorSolar.getContentPane().add(txtFPS);
-				
+		//Configura o campo de texto condição dos fios
+		this.txtCondicao.setColumns(10);
+		this.txtCondicao.setBounds(230, 352, 253, 27);
+		this.frmCadastrarCondicionador.getContentPane().add(txtCondicao);
+		
 		//Configura o botão cadastrar
 		this.btnCadastrar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		this.btnCadastrar.setBounds(230, 370, 110, 32);
-		this.frmCadastrarProtetorSolar.getContentPane().add(btnCadastrar);
+		this.btnCadastrar.setBounds(230, 399, 110, 32);
+		this.frmCadastrarCondicionador.getContentPane().add(btnCadastrar);
 		
 		//Configura o botão cancelar
 		this.btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		this.btnCancelar.setBounds(373, 369, 110, 32);
-		this.frmCadastrarProtetorSolar.getContentPane().add(btnCancelar);
-	
+		this.btnCancelar.setBounds(373, 398, 110, 32);
+		this.frmCadastrarCondicionador.getContentPane().add(btnCancelar);
+		
 		//Direciona os eventos dos botões
 		this.getBtnCadastrar().addActionListener(this);
 		this.getBtnCancelar().addActionListener(this);
 		
 		//Permite que a JFrame fique centralizada e visível
-		this.frmCadastrarProtetorSolar.setLocationRelativeTo(null);
-		this.frmCadastrarProtetorSolar.setVisible(true);
+		this.frmCadastrarCondicionador.setLocationRelativeTo(null);
+		this.frmCadastrarCondicionador.setVisible(true);
 	}
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		//Armazena o botão escolhido
@@ -180,13 +192,17 @@ public class TelaCadastroProtetorSolar implements ActionListener {
 				JOptionPane.showMessageDialog(null, "Não deixe nenhum campo em branco!", "", JOptionPane.WARNING_MESSAGE);
 				this.getTxtLinha().requestFocusInWindow();
 			} else if (this.getTxtEstoque().getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Não deixe nenhum campo em branco!", "", JOptionPane.WARNING_MESSAGE);
 				this.getTxtEstoque().requestFocusInWindow();
+			} else if (this.getTxtTipo().getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Não deixe nenhum campo em branco!", "", JOptionPane.WARNING_MESSAGE);
+				this.getTxtTipo().requestFocusInWindow();
 			} else if (this.getTxtPropriedades().getText().isEmpty()) {
 				JOptionPane.showMessageDialog(null, "Não deixe nenhum campo em branco!", "", JOptionPane.WARNING_MESSAGE);
 				this.getTxtPropriedades().requestFocusInWindow();
-			} else if (this.getTxtFPS().getText().isEmpty()) {
+			} else if (this.getTxtCondicao().getText().isEmpty()) {
 				JOptionPane.showMessageDialog(null, "Não deixe nenhum campo em branco!", "", JOptionPane.WARNING_MESSAGE);
-				this.getTxtFPS().requestFocusInWindow();
+				this.getTxtCondicao().requestFocusInWindow();
 			}
 			
 			//Armazena os valores com as devidas conversões e tratamentos
@@ -196,21 +212,22 @@ public class TelaCadastroProtetorSolar implements ActionListener {
 			String marca = this.getTxtMarca().getText();
 			String linha = this.getTxtLinha().getText();
 			int quantidade = Integer.valueOf(this.getTxtEstoque().getText()).intValue();
+			String tipo = this.getTxtTipo().getText();
 			String propriedades = this.getTxtPropriedades().getText();
-			int fps = Integer.valueOf(this.getTxtFPS().getText()).intValue();
+			String condicao = this.getTxtCondicao().getText();
 			
-			//Criação do objeto do tipo ProtetorSolar através do Construtor
-			ProtetorSolar protetor = new ProtetorSolar(preco, volume, codigo, marca,
-					linha, quantidade, propriedades, fps);
+			//Criação do objeto do tipo Condicionador através do Construtor
+			Condicionador condicionador = new Condicionador(preco, volume, codigo, 
+					marca, linha, quantidade, tipo, propriedades, condicao);
 			
-			//Adicionando o objeto criado no ArrayList listaProtetorSolar
-			ConjuntoProtetorSolar.cadastrarProtetorSolar(protetor);
+			//Adicionando o objeto criado no ArrayList listaCondicionadores
+			ConjuntoCondicionador.cadastrarCondicionador(condicionador);
 		
 			//Mensagem de cadastro bem sucedido
-			JOptionPane.showMessageDialog(null, "Protetor solar cadastrado!", "", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Shampoo cadastrado!", "", JOptionPane.INFORMATION_MESSAGE);
 			
-			//Oculta a tela de CadastroProtetorSolar
-			this.getFrmCadastrarProtetorSolar().dispose();
+			//Oculta a tela de CadastroProtetorSolarShampoo
+			this.getFrmCadastrarCondicionador().dispose();
 			
 			//Torna a tela MenuProduto visível
 			this.getFrmCadastrarProduto().setVisible(true);
@@ -218,90 +235,119 @@ public class TelaCadastroProtetorSolar implements ActionListener {
 		
 		//Inicia os eventos sobre o botão cancelar
 		if (botao == this.getBtnCancelar()) {
-			this.getFrmCadastrarProtetorSolar().dispose();
+			this.getFrmCadastrarCondicionador().dispose();
 			this.getFrmCadastrarProduto().setVisible(true);
 		}
 	}
 	
 	//Métodos acessores
-	public JFrame getFrmCadastrarProtetorSolar() {
-		return frmCadastrarProtetorSolar;
+	public JFrame getFrmCadastrarCondicionador() {
+		return frmCadastrarCondicionador;
 	}
+
 
 	public JLabel getLblPreco() {
 		return lblPreco;
 	}
 
+
 	public JTextField getTxtPreco() {
 		return txtPreco;
 	}
+
 
 	public JLabel getLblVolume() {
 		return lblVolume;
 	}
 
+
 	public JTextField getTxtVolume() {
 		return txtVolume;
 	}
+
 
 	public JLabel getLblCodigo() {
 		return lblCodigo;
 	}
 
+
 	public JTextField getTxtCodigo() {
 		return txtCodigo;
 	}
+
 
 	public JLabel getLblMarca() {
 		return lblMarca;
 	}
 
+
 	public JTextField getTxtMarca() {
 		return txtMarca;
 	}
+
 
 	public JLabel getLblLinha() {
 		return lblLinha;
 	}
 
+
 	public JTextField getTxtLinha() {
 		return txtLinha;
 	}
+
 
 	public JLabel getLblEstoque() {
 		return lblEstoque;
 	}
 
+
 	public JTextField getTxtEstoque() {
 		return txtEstoque;
 	}
+
+
+	public JLabel getLblTipo() {
+		return lblTipo;
+	}
+
+
+	public JTextField getTxtTipo() {
+		return txtTipo;
+	}
+
 
 	public JLabel getLblPropriedades() {
 		return lblPropriedades;
 	}
 
+
 	public JTextField getTxtPropriedades() {
 		return txtPropriedades;
 	}
 
-	public JLabel getLblFPS() {
-		return lblFPS;
+
+	public JLabel getLblCondicao() {
+		return lblCondicao;
 	}
 
-	public JTextField getTxtFPS() {
-		return txtFPS;
+
+	public JTextField getTxtCondicao() {
+		return txtCondicao;
 	}
+
 
 	public JButton getBtnCadastrar() {
 		return btnCadastrar;
 	}
 
+
 	public JButton getBtnCancelar() {
 		return btnCancelar;
 	}
 
+
 	public JFrame getFrmCadastrarProduto() {
 		return frmCadastrarProduto;
 	}
-	
+
 }
