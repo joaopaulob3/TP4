@@ -87,20 +87,22 @@ public class TelaMenuProduto implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		//Armazena o botão escolhido
 		JButton botao = (JButton) e.getSource();
+		int opcao;
 		
 		//Inicia os eventos sobre o cadastro de um produto
 		if (botao == this.getBtnCadastrarProduto()) {
-			new TelaLogin(this.getfrmMenuProduto());
+			opcao = 1;
+			new TelaLogin(this.getfrmMenuProduto(), opcao);
 		}
 		
 		//Inicia os eventos sobre o estoque
 		if (botao == this.getBtnAumentarOuDiminuirEstoque()) {
-			
+			opcao = 2;
 		}
 		
 		//Inicia os eventos sobre a edição de informações de um produto
 		if (botao == this.getBtnEditarInformacoesProduto()) {
-			
+			opcao = 3;
 		}
 		
 		//Inicia os eventos sobre listagem de dados dos produtos
@@ -110,7 +112,7 @@ public class TelaMenuProduto implements ActionListener {
 		
 		//Inicia os eventos sobre deleção de um produto
 		if (botao == this.getBtnDeletarUmProduto()) {
-			
+			opcao = 4;
 		}
 		
 		//Inicia os eventos sobre o botão voltar

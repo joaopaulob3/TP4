@@ -24,11 +24,13 @@ public class TelaLogin implements ActionListener {
 	private JButton btnEntrar = new JButton("Entrar");
 	private JButton btnCancelar = new JButton("Cancelar");
 	private JFrame frmTelaMenuProduto;
+	private int opcao;
 	
 	//Construtor
-	public TelaLogin(JFrame telaMenuProduto) {
+	public TelaLogin(JFrame telaMenuProduto, int opcao) {
 		//Configura os componentes da JFrame Tela de login
 		this.frmTelaMenuProduto = telaMenuProduto;
+		this.opcao = opcao;
 		this.frmTelaLogin.setBounds(100, 100, 389, 262);
 		this.frmTelaLogin.getContentPane().setLayout(null);
 		this.frmTelaLogin.setLocationRelativeTo(null);
@@ -87,14 +89,19 @@ public class TelaLogin implements ActionListener {
 		
 		//Inicia os eventos sobre o botão Entrar
 		if (botao == this.getBtnEntrar()) {
+			//Armazena cpf e senha
 			String cpf = this.getTxtCPF().getText();
 			String senha = new String(this.getCampoSenha().getPassword());
 			
-			//Se o login for validado, o sistema direciona para a tela de cadastro do produto
+			//Se o login for validado, o sistema direciona para as telas a depender
+			//da opção que veio do TelaMenuProduto no Construtor de TelaLogin
 			if (cpf.equals("login") && senha.equals("login")) {
+				//Oculta as janelas de Login e MenuProduto
 				this.getFrmTelaLogin().dispose();
 				this.getFrmTelaMenuProduto().dispose();
-				new TelaCadastrarProduto(this.getFrmTelaMenuProduto());
+				if (this.getOpcao() == 1) {
+					new TelaCadastrarProduto(this.getFrmTelaMenuProduto());
+				}
 			} else {
 				JOptionPane.showMessageDialog(null, "Login não validado!", "", JOptionPane.ERROR_MESSAGE);
 			}
@@ -133,5 +140,8 @@ public class TelaLogin implements ActionListener {
 	}
 	public JFrame getFrmTelaMenuProduto() {
 		return this.frmTelaMenuProduto;
+	}
+	public int getOpcao() {
+		return this.opcao;
 	}
 }

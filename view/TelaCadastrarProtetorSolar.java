@@ -40,7 +40,7 @@ public class TelaCadastrarProtetorSolar implements ActionListener {
 	
 	//Construtor
 	public TelaCadastrarProtetorSolar(JFrame frmCadastrarProduto) {
-		//Configura os componentes da JFrame da tela de cadastro de hidratante
+		//Configura os componentes da JFrame da tela de cadastro de protetor solar
 		this.frmCadastrarProduto = frmCadastrarProduto;
 		this.frmCadastrarProtetorSolar.setBounds(100, 100, 539, 464);
 		this.frmCadastrarProtetorSolar.getContentPane().setLayout(null);

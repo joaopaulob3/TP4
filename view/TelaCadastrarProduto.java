@@ -132,7 +132,7 @@ public class TelaCadastrarProduto implements ActionListener {
 		
 		//Inicia os eventos sobre o cadastro de sabonete líquido
 		if (botao == this.getBtnSaboneteLiquido()) {
-			
+			new TelaCadastrarSaboneteLiquido(this.getFrmCadastrarProduto());
 		}
 		
 		//Inicia os eventos sobre o botão voltar
