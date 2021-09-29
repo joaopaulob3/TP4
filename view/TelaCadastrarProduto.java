@@ -30,6 +30,7 @@ public class TelaCadastrarProduto implements ActionListener {
 		this.frmMenuProduto = frmMenuProduto;
 		this.frmCadastrarProduto.setBounds(100, 100, 534, 451);
 		this.frmCadastrarProduto.getContentPane().setLayout(null);
+		this.frmCadastrarProduto.setResizable(false);
 		this.frmCadastrarProduto.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		this.frmCadastrarProduto.addWindowListener(new WindowAdapter() {
 			@Override
@@ -81,7 +82,6 @@ public class TelaCadastrarProduto implements ActionListener {
 		this.btnVoltar.setBounds(415, 377, 89, 23);
 		this.frmCadastrarProduto.getContentPane().add(btnVoltar);
 		this.frmCadastrarProduto.setLocationRelativeTo(null);
-		this.frmCadastrarProduto.setResizable(false);
 		
 		//Direciona e configura os eventos dos botões
 		this.getBtnPerfume().addActionListener(this);

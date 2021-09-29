@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import model.CarregamentoInicialDeDadosAleatorios;
+
 public class TelaMenuInicial implements ActionListener {
 	//Atributos
 	private JFrame frmMenuInicial = new JFrame("Menu Inicial");
@@ -21,7 +23,7 @@ public class TelaMenuInicial implements ActionListener {
 	
 	//Constutor iniciando a montagem dos componentes gráficos da tela inicial
 	public TelaMenuInicial() {
-		// Configura os componentes da JFrame do Menu Inicial
+		//Configura os componentes da JFrame do Menu Inicial
 		this.frmMenuInicial.setBounds(100, 100, 698, 449);
 		this.frmMenuInicial.getContentPane().setLayout(null);
 		this.frmMenuInicial.setResizable(false);
@@ -57,7 +59,7 @@ public class TelaMenuInicial implements ActionListener {
 		this.btnCompra.setBounds(201, 262, 274, 47);
 		this.frmMenuInicial.getContentPane().add(btnCompra);
 
-		//Permitindo que a JFrame fique centralizada e visível
+		//Permite que a JFrame fique centralizada e visível
 		this.frmMenuInicial.setLocationRelativeTo(null);
 		this.frmMenuInicial.setVisible(true);
 	}
@@ -78,12 +80,19 @@ public class TelaMenuInicial implements ActionListener {
 	}
 	
 	public static void main(String[] args) {
+		//O LOGIN DO SISTEMA É:
+		//login
+		//login
+		
 		//Altera o estilo da GUI
 		alterarEstiloGUI();
 
 		//Inicia a aplicação através do Construtor
 		TelaMenuInicial menu = new TelaMenuInicial();
 
+		//Carrega os dados aleatórios no sistema
+		CarregamentoInicialDeDadosAleatorios.carregamentoInicial();
+		
 		//Direciona os eventos dos botões
 		menu.getBtnProduto().addActionListener(menu);
 		menu.getBtnCliente().addActionListener(menu);

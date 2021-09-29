@@ -3,8 +3,6 @@ package view;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -33,7 +31,7 @@ public class TelaLogin implements ActionListener {
 		this.opcao = opcao;
 		this.frmTelaLogin.setBounds(100, 100, 389, 262);
 		this.frmTelaLogin.getContentPane().setLayout(null);
-		this.frmTelaLogin.setLocationRelativeTo(null);
+		this.frmTelaLogin.setResizable(false);
 		this.frmTelaLogin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		//Configura o label de aviso
@@ -66,7 +64,6 @@ public class TelaLogin implements ActionListener {
 		this.btnEntrar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		this.btnEntrar.setBounds(68, 166, 111, 31);
 		this.frmTelaLogin.getContentPane().add(btnEntrar);
-		this.frmTelaLogin.setResizable(false);
 		
 		//Configura o botão cancelar
 		this.btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -89,6 +86,7 @@ public class TelaLogin implements ActionListener {
 		
 		//Inicia os eventos sobre o botão Entrar
 		if (botao == this.getBtnEntrar()) {
+			
 			//Armazena cpf e senha
 			String cpf = this.getTxtCPF().getText();
 			String senha = new String(this.getCampoSenha().getPassword());
@@ -96,16 +94,21 @@ public class TelaLogin implements ActionListener {
 			//Se o login for validado, o sistema direciona para as telas a depender
 			//da opção que veio do TelaMenuProduto no Construtor de TelaLogin
 			if (cpf.equals("login") && senha.equals("login")) {
+				
 				//Oculta as janelas de Login e MenuProduto
 				this.getFrmTelaLogin().dispose();
 				this.getFrmTelaMenuProduto().dispose();
+				
 				//Chama a tela de cadastrar produto
 				if (this.getOpcao() == 1) {
 					new TelaCadastrarProduto(this.getFrmTelaMenuProduto());
+					
 				//Chama a tela de alteração de estoque de um produto
 				} else if (this.getOpcao() == 2) {
 					new TelaAlteracaoEstoque(this.getFrmTelaMenuProduto());
 				}
+				
+			//Mensagem de erro se o Login não for validado	
 			} else {
 				JOptionPane.showMessageDialog(null, "Login não validado!", "", JOptionPane.ERROR_MESSAGE);
 			}

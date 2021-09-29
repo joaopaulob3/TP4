@@ -41,6 +41,7 @@ public class TelaCadastrarPerfume implements ActionListener {
 	private JButton btnCadastrar = new JButton("Cadastrar");
 	private JButton btnCancelar = new JButton("Cancelar");
 	private JFrame frmCadastrarProduto;
+	private ConjuntoPerfumaria conjuntoPerfumes = new ConjuntoPerfumaria();
 	
 	//Construtor
 	public TelaCadastrarPerfume(JFrame frmCadastrarProduto) {
@@ -236,7 +237,7 @@ public class TelaCadastrarPerfume implements ActionListener {
 					categoria, propriedades, familia, subfamilia);
 			
 			//Adicionando o objeto criado no ArrayList listaPerfumes
-			ConjuntoPerfumaria.cadastrarPerfume(perfume);
+			conjuntoPerfumes.cadastrarPerfume(perfume);
 		
 			//Mensagem de cadastro bem sucedido
 			JOptionPane.showMessageDialog(null, "Perfume cadastrado!", "", JOptionPane.INFORMATION_MESSAGE);

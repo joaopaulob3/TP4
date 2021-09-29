@@ -27,6 +27,7 @@ public class TelaMenuProduto implements ActionListener {
 		this.frmTelaMenuInicial = telaMenuInicial;
 		this.frmMenuProduto.setBounds(100, 100, 651, 409);
 		this.frmMenuProduto.getContentPane().setLayout(null);
+		this.frmMenuProduto.setResizable(false);
 		this.frmMenuProduto.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		this.frmMenuProduto.addWindowListener(new WindowAdapter() {
 			@Override
@@ -68,7 +69,6 @@ public class TelaMenuProduto implements ActionListener {
 		//Configura o botão voltar
 		this.btnVoltar.setBounds(536, 336, 89, 23);
 		this.frmMenuProduto.getContentPane().add(btnVoltar);
-		this.frmMenuProduto.setResizable(false);
 		
 		//Direciona os eventos dos botões
 		this.btnCadastrarProduto.addActionListener(this);
@@ -85,9 +85,11 @@ public class TelaMenuProduto implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		//Declarações
+		int opcao;
+		
 		//Armazena o botão escolhido
 		JButton botao = (JButton) e.getSource();
-		int opcao;
 		
 		//Inicia os eventos sobre o cadastro de um produto
 		if (botao == this.getBtnCadastrarProduto()) {

@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import controller.*;
+
 public class TelaAlteracaoEstoque implements ActionListener {
 	//Atributos
 	private JFrame frmEstoque = new JFrame("Altera\u00E7\u00E3o de estoque");
@@ -100,40 +102,82 @@ public class TelaAlteracaoEstoque implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		//Declarações
+		int opcao;
+		
 		//Armazena o botão escolhido
 		JButton botao = (JButton) e.getSource();
 		
-		//Oculta a tela de alteração do estoque
+		//Oculta a janela de alteração de estoque
 		this.getFrmEstoque().dispose();
 		
 		//Inicia os eventos sobre alteração de estoque de perfume
 		if (botao == this.getBtnPerfume()) {
-			
+			//Se há perfume no sistema, podemos prosseguir
+			if (ConjuntoPerfumaria.temPerfume()) {
+				//Lista os perfumes no sistema e aciona a tela de pesquisa por código
+				opcao = 1;
+				new TelaListaPerfume(ConjuntoPerfumaria.getListaPerfumes());
+				new TelaPesquisaPorCodigo(this.getFrmEstoque(), opcao);
+			} else {
+				JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum perfume!", "", JOptionPane.WARNING_MESSAGE);
+			}
 		}
 		
 		//Inicia os eventos sobre alteração de estoque de hidratante
 		if (botao == this.getBtnHidratante()) {
-	
+			//Se há hidratante no sistema, podemos prosseguir
+			if (ConjuntoHidratante.temHidratante()) {
+				//Lista os perfumes do sistema
+				opcao = 2;
+				
+			} else {
+				JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum hidratante!", "", JOptionPane.WARNING_MESSAGE);
+			}
 		}
 		
 		//Inicia os eventos sobre alteração de estoque de protetor solar
 		if (botao == this.getBtnProtetorSolar()) {
-		
+			//Se há protetor solar no sistema, podemos prosseguir
+			if (ConjuntoProtetorSolar.temProtetorSolar()) {
+				opcao = 3;
+				
+			} else {
+				JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum protetor solar!", "", JOptionPane.WARNING_MESSAGE);
+			}
 		}
 		
 		//Inicia os eventos sobre alteração de estoque de shampoo
 		if (botao == this.getBtnShampoo()) {
-			
+			//Se há shampoo no sistema, podemos prosseguir
+			if (ConjuntoShampoo.temShampoo()) {
+				opcao = 4;
+				
+			} else {
+				JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum shampoo!", "", JOptionPane.WARNING_MESSAGE);
+			}
 		}
 		
 		//Inicia os eventos sobre alteração de estoque de condicionador
 		if (botao == this.getBtnCondicionador()) {
-			
+			//Se há condicionador no sistema, podemos prosseguir
+			if (ConjuntoCondicionador.temCondicionador()) {
+				opcao = 5;
+				
+			} else {
+				JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum condicionador!", "", JOptionPane.WARNING_MESSAGE);
+			}
 		}
 		
 		//Inicia os eventos sobre alteração de estoque de sabonete líquido
 		if (botao == this.getBtnSaboneteLiquido()) {
-			
+			//Se há sabonete líquido no sistema, podemos prosseguir
+			if (ConjuntoSaboneteLiquido.temSaboneteLiquido()) {
+				opcao = 6;
+				
+			} else {
+				JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum sabonete líquido!", "", JOptionPane.WARNING_MESSAGE);
+			}
 		}
 		
 		//Inicia os eventos sobre o botão voltar
@@ -144,43 +188,43 @@ public class TelaAlteracaoEstoque implements ActionListener {
 	
 	//Métodos acessores
 	public JFrame getFrmEstoque() {
-		return frmEstoque;
+		return this.frmEstoque;
 	}
 
 	public JLabel getLblTitulo() {
-		return lblTitulo;
+		return this.lblTitulo;
 	}
 
 	public JButton getBtnPerfume() {
-		return btnPerfume;
+		return this.btnPerfume;
 	}
 
 	public JButton getBtnHidratante() {
-		return btnHidratante;
+		return this.btnHidratante;
 	}
 
 	public JButton getBtnProtetorSolar() {
-		return btnProtetorSolar;
+		return this.btnProtetorSolar;
 	}
 
 	public JButton getBtnShampoo() {
-		return btnShampoo;
+		return this.btnShampoo;
 	}
 
 	public JButton getBtnCondicionador() {
-		return btnCondicionador;
+		return this.btnCondicionador;
 	}
 
 	public JButton getBtnSaboneteLiquido() {
-		return btnSaboneteLiquido;
+		return this.btnSaboneteLiquido;
 	}
 
 	public JButton getBtnVoltar() {
-		return btnVoltar;
+		return this.btnVoltar;
 	}
 
 	public JFrame getFrmMenuProduto() {
-		return frmMenuProduto;
+		return this.frmMenuProduto;
 	}
 
 }

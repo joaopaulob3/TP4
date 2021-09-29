@@ -7,7 +7,12 @@ import model.Perfumaria;
 public class ConjuntoPerfumaria{
 	//Criação do ArrayList de objetos do tipo Perfumaria
 	private static final ArrayList<Perfumaria> listaPerfumes = new ArrayList<>();
-	
+
+	//Método acessor do ArrayList
+	public static ArrayList<Perfumaria> getListaPerfumes(){
+		return listaPerfumes;
+	}
+		
 	//Adicionar o objeto do tipo Perfumaria no ArrayList
 	public static void cadastrarPerfume(Perfumaria perfume) {
 		listaPerfumes.add(perfume);

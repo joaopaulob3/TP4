@@ -1,12 +1,6 @@
 package model;
 
-import controller.ConjuntoCliente;
-import controller.ConjuntoCondicionador;
-import controller.ConjuntoHidratante;
-import controller.ConjuntoPerfumaria;
-import controller.ConjuntoProtetorSolar;
-import controller.ConjuntoSaboneteLiquido;
-import controller.ConjuntoShampoo;
+import controller.*;
 
 public class CarregamentoInicialDeDadosAleatorios {
 	//Instância de objetos para pré-carregamento do programa
