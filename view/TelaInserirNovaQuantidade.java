@@ -16,7 +16,7 @@ import model.*;
 
 public class TelaInserirNovaQuantidade implements ActionListener {
 	//Atributos
-	private JFrame frmQuantidade = new JFrame("Dados dos perfumes");
+	private JFrame frmQuantidade = new JFrame("Dados");
 	private JLabel lblTitulo = new JLabel("Informe a nova quantidade:");
 	private JTextField txtCampoResposta = new JTextField();
 	private JButton btnCadastrar = new JButton("Cadastrar");
@@ -24,12 +24,14 @@ public class TelaInserirNovaQuantidade implements ActionListener {
 	private Produto produto;
 	private int opcao;
 	private JFrame frmAlteracaoEstoque;
+	private JFrame telaListagem;
 	
 	//Construtor
-	public TelaInserirNovaQuantidade(Produto produto, int opcao, JFrame frmAlteracaoEstoque) {
+	public TelaInserirNovaQuantidade(Produto produto, int opcao, JFrame frmAlteracaoEstoque, JFrame telaListagem) {
 		this.produto = produto;
 		this.opcao = opcao;
 		this.frmAlteracaoEstoque = frmAlteracaoEstoque;
+		this.telaListagem = telaListagem;
 		this.frmQuantidade.setBounds(100, 100, 427, 265);
 		this.frmQuantidade.setResizable(false);
 		this.frmQuantidade.getContentPane().setLayout(null);
@@ -72,19 +74,28 @@ public class TelaInserirNovaQuantidade implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		//Armazena o botão escolhido
 		JButton botao = (JButton) e.getSource();
-				
-		//Armazena o número digitado pelo usuário já convertido
-		int quantidade = Integer.valueOf(this.getTxtCampoResposta().getText()).intValue();
+		
+		//Oculta a janela
+		this.getFrmQuantidade().dispose();
 		
 		//Inicia os eventos sobre o botão cadastrar
 		if (botao == this.getBtnCadastrar()) {
+			
+			//Armazena o número digitado pelo usuário já convertido
+			int quantidade = Integer.valueOf(this.getTxtCampoResposta().getText()).intValue();
+			
 			switch (this.getOpcao()) {
+			//Altera a quantidade de perfume
 			case 1:
 				Perfumaria perfume = (Perfumaria) this.getProduto();
 				perfume.setQuantidadeProduto(quantidade);
 				JOptionPane.showMessageDialog(null, "Quantidade alterada com sucesso!", "", JOptionPane.INFORMATION_MESSAGE);
 				break;
+			//Altera a quantidade de hidratante
 			case 2:
+				Hidratante hidratante = (Hidratante) this.getProduto();
+				hidratante.setQuantidadeProduto(quantidade);
+				JOptionPane.showMessageDialog(null, "Quantidade alterada com sucesso!", "", JOptionPane.INFORMATION_MESSAGE);
 				break;
 			case 3:
 				break;
@@ -95,14 +106,17 @@ public class TelaInserirNovaQuantidade implements ActionListener {
 			case 6:
 				break;
 			}
+
+			this.getTelaListagem().dispose();
+			this.getFrmAlteracaoEstoque().setLocationRelativeTo(null);
+			this.getFrmAlteracaoEstoque().setVisible(true);
 		}
-		
-		//Oculta janela
-		this.getFrmQuantidade().dispose();
-		this.getFrmAlteracaoEstoque().dispose();
+	
 		
 		//Inicia os eventos sobre o botão cancelar
 		if (botao == this.getBtnCancelar()) {
+			this.getTelaListagem().dispose();
+			this.getFrmAlteracaoEstoque().setLocationRelativeTo(null);
 			this.getFrmAlteracaoEstoque().setVisible(true);
 		}
 		
@@ -138,5 +152,9 @@ public class TelaInserirNovaQuantidade implements ActionListener {
 	
 	public JFrame getFrmAlteracaoEstoque() {
 		return this.frmAlteracaoEstoque;
+	}
+	
+	public JFrame getTelaListagem() {
+		return this.telaListagem;
 	}
 }

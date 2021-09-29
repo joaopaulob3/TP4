@@ -24,6 +24,7 @@ public class TelaPesquisaPorCodigo implements ActionListener {
 	private JButton btnCancelar = new JButton("Cancelar");
 	private JFrame frmAlteracaoEstoque;
 	private int opcao;
+	private JFrame telaListagem;
 	private Perfumaria perfume;
 	private Hidratante hidratante;
 	private ProtetorSolar protetor;
@@ -32,10 +33,11 @@ public class TelaPesquisaPorCodigo implements ActionListener {
 	private SaboneteLiquido sabonete;
 	
 	//Construtor
-	public TelaPesquisaPorCodigo(JFrame frmAlteracaoEstoque, int opcao) {
+	public TelaPesquisaPorCodigo(JFrame frmAlteracaoEstoque, int opcao, JFrame telaListagem) {
 		//Configura os componentes da JFrame da tela de pesquisa pelo código
 		this.frmAlteracaoEstoque = frmAlteracaoEstoque;
 		this.opcao = opcao;
+		this.telaListagem = telaListagem;
 		this.frmPesquisa.setBounds(100, 100, 440, 257);
 		this.frmPesquisa.getContentPane().setLayout(null);
 		this.frmPesquisa.setResizable(false);
@@ -85,7 +87,8 @@ public class TelaPesquisaPorCodigo implements ActionListener {
 		//Armazena o botão escolhido
 		JButton botao = (JButton) e.getSource();
 		
-		//Oculta janela de pesquisa
+		//Oculta janela de pesquisa e estoque
+		this.getFrmAlteracaoEstoque().dispose();
 		this.getFrmPesquisa().dispose();
 		
 		//Armazena o código digitado
@@ -93,6 +96,7 @@ public class TelaPesquisaPorCodigo implements ActionListener {
 		
 		//Inicia os eventos sobre o botão pesquisar
 		if (botao == this.getBtnPesquisar()) {
+			
 			switch (this.getOpcao()) {
 			case 1:
 				//Resgata o objeto do tipo Perfumaria do ArrayList listaPerfumes
@@ -101,12 +105,24 @@ public class TelaPesquisaPorCodigo implements ActionListener {
 				//Se o código for reconhecido no sistema, podemos prosseguir
 				if (perfume != null) {
 					//Altera a quantidade no estoque
-					new TelaInserirNovaQuantidade(perfume, this.getOpcao(), this.getFrmAlteracaoEstoque());
+					new TelaInserirNovaQuantidade(perfume, this.getOpcao(), this.getFrmAlteracaoEstoque(), this.getTelaListagem());
 				} else {
 					JOptionPane.showMessageDialog(null, "O código informado não foi encontrado no sistema.", "", JOptionPane.WARNING_MESSAGE);
+					this.getTelaListagem().dispose();
 				}
 				break;
 			case 2:
+				//Resgata o objeto do tipo Hidratante do ArrayList listaHidratantes
+				hidratante = ConjuntoHidratante.pesquisarHidratante(codigo);
+				
+				//Se o código for reconhecido no sistema, podemos prosseguir
+				if (hidratante != null) {
+					//Altera a quantidade no estoque
+					new TelaInserirNovaQuantidade(hidratante, this.getOpcao(), this.getFrmAlteracaoEstoque(), this.getTelaListagem());
+				} else {
+					JOptionPane.showMessageDialog(null, "O código informado não foi encontrado no sistema.", "", JOptionPane.WARNING_MESSAGE);
+					this.getTelaListagem().dispose();
+				}
 				break;
 			case 3:
 				break;
@@ -117,10 +133,13 @@ public class TelaPesquisaPorCodigo implements ActionListener {
 			case 6:
 				break;
 			}
+			
 		}
 		
 		//Inicia os eventos sobre o botão cancelar
 		if (botao == this.getBtnCancelar()) {
+			this.getTelaListagem().dispose();
+			this.getFrmAlteracaoEstoque().setLocationRelativeTo(null);
 			this.getFrmAlteracaoEstoque().setVisible(true);
 		}
 	}
@@ -152,6 +171,10 @@ public class TelaPesquisaPorCodigo implements ActionListener {
 	
 	public int getOpcao() {
 		return this.opcao;
+	}
+	
+	public JFrame getTelaListagem() {
+		return this.telaListagem;
 	}
 
 }

@@ -8,6 +8,11 @@ public class ConjuntoCondicionador {
 	//Criação do ArrayList de objetos do tipo Condicionador
 	private static final ArrayList<Condicionador> listaCondicionadores = new ArrayList<>();
 
+	//Método acessor do ArrayList
+	public static ArrayList<Condicionador> getListaCondicionadores() {
+		return listaCondicionadores;
+	}
+		
 	//Adicionar o objeto do tipo Condicionador no ArrayList
 	public static void cadastrarCondicionador(Condicionador condicionador) {
 		listaCondicionadores.add(condicionador);

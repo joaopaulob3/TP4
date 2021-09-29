@@ -9,33 +9,31 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import model.Perfumaria;
+import model.Hidratante;
 
-public class TelaListaPerfume {
+public class TelaListaHidratante {
 	//Atributos
-	private JFrame janela = new JFrame("Lista dos perfumes");
+	private JFrame janela = new JFrame("Lista dos hidratantes");
 	private JPanel painelFundo = new JPanel();
-	private String [] colunas = {"Perfume", "Marca", "Linha", 
-			"Categoria", "Propriedades", "Família olfativa", 
-			"Subfamília", "Código", "Preço (R$)", 
+	private String [] colunas = {"Hidratante", "Marca", "Linha", 
+			"Tipo de pele", "Código", "Preço (R$)", 
 			"Volume (ml)", "Quantidade no estoque"};
 	private DefaultTableModel tabelaModelo = new DefaultTableModel(this.colunas, 0);
 	private JTable tabela = new JTable(tabelaModelo);
 	private JScrollPane barraRolagem = new JScrollPane(tabela);
 	
 	//Construtor
-	public TelaListaPerfume(ArrayList<Perfumaria> listaPerfumes) {
+	public TelaListaHidratante(ArrayList<Hidratante> listaHidratantes) {
 		//Declarações
 		int contador = 1;
 		
-		for (Perfumaria perfume : listaPerfumes) {
-			Object [] dados = {new String(Integer.toString(contador)), perfume.getMarcaDoProduto(), 
-					perfume.getLinhaDoProduto(), perfume.getCategoriaDoPerfume(), 
-					perfume.getPropriedadesDoPerfume(), perfume.getFamiliaOlfativaDoPerfume(), 
-					perfume.getSubfamiliaDoPerfume(), perfume.getCodigoDoProduto(), 
-					new String(Double.toString(perfume.getPrecoDoProduto())),
-					new String(Double.toString(perfume.getVolumeDoProduto())),
-					new String(Integer.toString(perfume.getQuantidadeProduto()))};
+		for (Hidratante hidratante : listaHidratantes) {
+			Object [] dados = {new String(Integer.toString(contador)), hidratante.getMarcaDoProduto(), 
+					hidratante.getLinhaDoProduto(), hidratante.getTipoDePeleDoHidratante(), 
+					hidratante.getCodigoDoProduto(), 
+					new String(Double.toString(hidratante.getPrecoDoProduto())),
+					new String(Double.toString(hidratante.getVolumeDoProduto())),
+					new String(Integer.toString(hidratante.getQuantidadeProduto()))};
 			tabelaModelo.addRow(dados);
 			contador++;
 		}

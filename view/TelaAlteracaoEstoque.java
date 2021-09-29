@@ -117,8 +117,8 @@ public class TelaAlteracaoEstoque implements ActionListener {
 			if (ConjuntoPerfumaria.temPerfume()) {
 				//Lista os perfumes no sistema e aciona a tela de pesquisa por código
 				opcao = 1;
-				new TelaListaPerfume(ConjuntoPerfumaria.getListaPerfumes());
-				new TelaPesquisaPorCodigo(this.getFrmEstoque(), opcao);
+				TelaListaPerfume telaListaPerfume = new TelaListaPerfume(ConjuntoPerfumaria.getListaPerfumes());
+				new TelaPesquisaPorCodigo(this.getFrmEstoque(), opcao, telaListaPerfume.getJanela());
 			} else {
 				JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum perfume!", "", JOptionPane.WARNING_MESSAGE);
 			}
@@ -128,9 +128,10 @@ public class TelaAlteracaoEstoque implements ActionListener {
 		if (botao == this.getBtnHidratante()) {
 			//Se há hidratante no sistema, podemos prosseguir
 			if (ConjuntoHidratante.temHidratante()) {
-				//Lista os perfumes do sistema
+				//Lista os hidratantes do sistema e aciona a tela de pesquisa por código
 				opcao = 2;
-				
+				TelaListaHidratante telaListaHidratante = new TelaListaHidratante(ConjuntoHidratante.getListaHidratantes());
+				new TelaPesquisaPorCodigo(this.getFrmEstoque(), opcao, telaListaHidratante.getJanela());
 			} else {
 				JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum hidratante!", "", JOptionPane.WARNING_MESSAGE);
 			}

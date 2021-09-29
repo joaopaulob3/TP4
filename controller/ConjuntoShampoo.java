@@ -8,6 +8,11 @@ public class ConjuntoShampoo {
 	//Criação do ArrayList de objetos do tipo Shampoo
 	private static final ArrayList<Shampoo> listaShampoos = new ArrayList<>();
 
+	//Método acessor do ArrayList
+	public static ArrayList<Shampoo> getListaShampoos() {
+		return listaShampoos;
+	}
+		
 	//Adicionar o objeto do tipo Shampoo no ArrayList
 	public static void cadastrarShampoo(Shampoo shampoo) {
 		listaShampoos.add(shampoo);

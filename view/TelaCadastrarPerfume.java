@@ -74,7 +74,7 @@ public class TelaCadastrarPerfume implements ActionListener {
 		
 		//Condigura o label do volume do perfume
 		this.lblVolume.setFont(new Font("Tahoma", Font.BOLD, 12));
-		this.lblVolume.setBounds(27, 84, 147, 27);
+		this.lblVolume.setBounds(27, 84, 155, 27);
 		this.frmCadastrarPerfume.getContentPane().add(lblVolume);
 		
 		//Configura o campo de texto do volume do perfume

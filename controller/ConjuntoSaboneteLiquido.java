@@ -8,6 +8,11 @@ public class ConjuntoSaboneteLiquido {
 	//Criação do ArrayList de objetos do tipo SaboneteLiquido
 	private static final ArrayList<SaboneteLiquido> listaSabonetesLiquido = new ArrayList<>();
 
+	//Método acessor do ArrayList
+	public static ArrayList<SaboneteLiquido> getListaSabonetesLiquido() {
+		return listaSabonetesLiquido;
+	}
+		
 	//Adicionar o objeto do tipo SaboneteLiquido no ArrayList
 	public static void cadastrarSaboneteLiquido(SaboneteLiquido sabonete) {
 		listaSabonetesLiquido.add(sabonete);

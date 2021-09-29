@@ -8,6 +8,11 @@ public class ConjuntoHidratante {
 	//Criação do ArrayList de objetos do tipo Hidratante
 	private static final ArrayList<Hidratante> listaHidratantes = new ArrayList<>();
 	
+	//Método acessor do ArrayList
+	public static ArrayList<Hidratante> getListaHidratantes() {
+		return listaHidratantes;
+	}
+	
 	//Adicionar o objeto do tipo Hidratante no ArrayList
 	public static void cadastrarHidratante(Hidratante Hidratante) {
 		listaHidratantes.add(Hidratante);
