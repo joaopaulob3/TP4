@@ -8,6 +8,11 @@ public class ConjuntoProtetorSolar {
 	//Criação do ArrayList de objetos do tipo ProtetorSolar
 	private static final ArrayList<ProtetorSolar> listaProtetorSolar = new ArrayList<>();
 
+	//Método acessor do ArrayList
+	public static ArrayList<ProtetorSolar> getListaProtetorSolar() {
+		return listaProtetorSolar;
+	}
+		
 	//Adicionar o objeto do tipo ProtetorSolar no ArrayList
 	public static void cadastrarProtetorSolar(ProtetorSolar protetor) {
 		listaProtetorSolar.add(protetor);

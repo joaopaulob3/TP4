@@ -97,13 +97,29 @@ public class TelaInserirNovaQuantidade implements ActionListener {
 				hidratante.setQuantidadeProduto(quantidade);
 				JOptionPane.showMessageDialog(null, "Quantidade alterada com sucesso!", "", JOptionPane.INFORMATION_MESSAGE);
 				break;
+			//Altera a quantidade de protetor solar
 			case 3:
+				ProtetorSolar protetor = (ProtetorSolar) this.getProduto();
+				protetor.setQuantidadeProduto(quantidade);
+				JOptionPane.showMessageDialog(null, "Quantidade alterada com sucesso!", "", JOptionPane.INFORMATION_MESSAGE);
 				break;
+			//Altera a quantidade de shampoo
 			case 4:
+				Shampoo shampoo = (Shampoo) this.getProduto();
+				shampoo.setQuantidadeProduto(quantidade);
+				JOptionPane.showMessageDialog(null, "Quantidade alterada com sucesso!", "", JOptionPane.INFORMATION_MESSAGE);
 				break;
+			//Altera a quantidade de condicionador
 			case 5:
+				Condicionador condicionador = (Condicionador) this.getProduto();
+				condicionador.setQuantidadeProduto(quantidade);
+				JOptionPane.showMessageDialog(null, "Quantidade alterada com sucesso!", "", JOptionPane.INFORMATION_MESSAGE);
 				break;
+			//Altera a quantidade de sabonete líquido
 			case 6:
+				SaboneteLiquido sabonete = (SaboneteLiquido) this.getProduto();
+				sabonete.setQuantidadeProduto(quantidade);
+				JOptionPane.showMessageDialog(null, "Quantidade alterada com sucesso!", "", JOptionPane.INFORMATION_MESSAGE);
 				break;
 			}
 

@@ -100,7 +100,7 @@ public class TelaPesquisaPorCodigo implements ActionListener {
 			switch (this.getOpcao()) {
 			case 1:
 				//Resgata o objeto do tipo Perfumaria do ArrayList listaPerfumes
-				perfume = ConjuntoPerfumaria.pesquisarPerfume(codigo);
+				this.perfume = ConjuntoPerfumaria.pesquisarPerfume(codigo);
 				
 				//Se o código for reconhecido no sistema, podemos prosseguir
 				if (perfume != null) {
@@ -109,11 +109,13 @@ public class TelaPesquisaPorCodigo implements ActionListener {
 				} else {
 					JOptionPane.showMessageDialog(null, "O código informado não foi encontrado no sistema.", "", JOptionPane.WARNING_MESSAGE);
 					this.getTelaListagem().dispose();
+					this.getFrmAlteracaoEstoque().setLocationRelativeTo(null);
+					this.getFrmAlteracaoEstoque().setVisible(true);
 				}
 				break;
 			case 2:
 				//Resgata o objeto do tipo Hidratante do ArrayList listaHidratantes
-				hidratante = ConjuntoHidratante.pesquisarHidratante(codigo);
+				this.hidratante = ConjuntoHidratante.pesquisarHidratante(codigo);
 				
 				//Se o código for reconhecido no sistema, podemos prosseguir
 				if (hidratante != null) {
@@ -122,18 +124,71 @@ public class TelaPesquisaPorCodigo implements ActionListener {
 				} else {
 					JOptionPane.showMessageDialog(null, "O código informado não foi encontrado no sistema.", "", JOptionPane.WARNING_MESSAGE);
 					this.getTelaListagem().dispose();
+					this.getFrmAlteracaoEstoque().setLocationRelativeTo(null);
+					this.getFrmAlteracaoEstoque().setVisible(true);
 				}
 				break;
 			case 3:
+				//Resgata o objeto do tipo ProtetorSolar do ArrayList listaProtetorSolar
+				this.protetor = ConjuntoProtetorSolar.pesquisarProtetorSolar(codigo);
+				
+				//Se o código for reconhecido no sistema, podemos prosseguir
+				if (protetor != null) {
+					//Altera a quantidade no estoque
+					new TelaInserirNovaQuantidade(protetor, this.getOpcao(), this.getFrmAlteracaoEstoque(), this.getTelaListagem());
+				} else {
+					JOptionPane.showMessageDialog(null, "O código informado não foi encontrado no sistema.", "", JOptionPane.WARNING_MESSAGE);
+					this.getTelaListagem().dispose();
+					this.getFrmAlteracaoEstoque().setLocationRelativeTo(null);
+					this.getFrmAlteracaoEstoque().setVisible(true);
+				}
 				break;
 			case 4:
+				//Resgata o objeto do tipo Shampoo do ArrayList listaShampoos
+				this.shampoo = ConjuntoShampoo.pesquisarShampoo(codigo);
+				
+				//Se o código for reconhecido no sistema, podemos prosseguir
+				if (shampoo != null) {
+					//Altera a quantidade no estoque
+					new TelaInserirNovaQuantidade(shampoo, this.getOpcao(), this.getFrmAlteracaoEstoque(), this.getTelaListagem());
+				} else {
+					JOptionPane.showMessageDialog(null, "O código informado não foi encontrado no sistema.", "", JOptionPane.WARNING_MESSAGE);
+					this.getTelaListagem().dispose();
+					this.getFrmAlteracaoEstoque().setLocationRelativeTo(null);
+					this.getFrmAlteracaoEstoque().setVisible(true);
+				}
 				break;
 			case 5:
+				//Resgata o objeto do tipo Condicionador do ArrayList listaCondicionadores
+				this.condicionador = ConjuntoCondicionador.pesquisarCondicionador(codigo);
+				
+				//Se o código for reconhecido no sistema, podemos prosseguir
+				if (condicionador != null) {
+					//Altera a quantidade no estoque
+					new TelaInserirNovaQuantidade(condicionador, this.getOpcao(), this.getFrmAlteracaoEstoque(), this.getTelaListagem());
+				} else {
+					JOptionPane.showMessageDialog(null, "O código informado não foi encontrado no sistema.", "", JOptionPane.WARNING_MESSAGE);
+					this.getTelaListagem().dispose();
+					this.getFrmAlteracaoEstoque().setLocationRelativeTo(null);
+					this.getFrmAlteracaoEstoque().setVisible(true);
+				}
 				break;
 			case 6:
+				//Resgata o objeto do tipo SaboneteLiquido do ArrayList listaSabonetesLiquido
+				this.sabonete = ConjuntoSaboneteLiquido.pesquisarSaboneteLiquido(codigo);
+				
+				//Se o código for reconhecido no sistema, podemos prosseguir
+				if (sabonete != null) {
+					//Altera a quantidade no estoque
+					new TelaInserirNovaQuantidade(sabonete, this.getOpcao(), this.getFrmAlteracaoEstoque(), this.getTelaListagem());
+				} else {
+					JOptionPane.showMessageDialog(null, "O código informado não foi encontrado no sistema.", "", JOptionPane.WARNING_MESSAGE);
+					this.getTelaListagem().dispose();
+					this.getFrmAlteracaoEstoque().setLocationRelativeTo(null);
+					this.getFrmAlteracaoEstoque().setVisible(true);
+				}
 				break;
 			}
-			
 		}
 		
 		//Inicia os eventos sobre o botão cancelar
