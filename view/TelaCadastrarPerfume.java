@@ -41,12 +41,13 @@ public class TelaCadastrarPerfume implements ActionListener {
 	private JButton btnCadastrar = new JButton("Cadastrar");
 	private JButton btnCancelar = new JButton("Cancelar");
 	private JFrame frmCadastrarProduto;
-	private ConjuntoPerfumaria conjuntoPerfumes = new ConjuntoPerfumaria();
+	private Perfumaria perfume;
 	
 	//Construtor
-	public TelaCadastrarPerfume(JFrame frmCadastrarProduto) {
+	public TelaCadastrarPerfume(JFrame frmCadastrarProduto, Perfumaria perfume) {
 		//Configura os componentes da JFrame da tela de cadastro de perfume
 		this.frmCadastrarProduto = frmCadastrarProduto;
+		this.perfume = perfume;
 		this.frmCadastrarPerfume.setBounds(100, 100, 538, 524);
 		this.frmCadastrarPerfume.getContentPane().setLayout(null);
 		this.frmCadastrarPerfume.setResizable(false);
@@ -220,6 +221,11 @@ public class TelaCadastrarPerfume implements ActionListener {
 				this.getTxtSubfamilia().requestFocusInWindow();
 			}
 			
+			if (this.getPerfume() != null) {
+				//Deleta o perfume e faz o recadastro
+				ConjuntoPerfumaria.deletarPerfume(perfume);
+			}
+			
 			//Armazena os valores com as devidas conversões e tratamentos
 			double preco = Double.valueOf(this.getTxtPreco().getText()).doubleValue();
 			double volume = Double.valueOf(this.getTxtVolume().getText()).doubleValue();
@@ -237,7 +243,7 @@ public class TelaCadastrarPerfume implements ActionListener {
 					categoria, propriedades, familia, subfamilia);
 			
 			//Adicionando o objeto criado no ArrayList listaPerfumes
-			conjuntoPerfumes.cadastrarPerfume(perfume);
+			ConjuntoPerfumaria.cadastrarPerfume(perfume);
 		
 			//Mensagem de cadastro bem sucedido
 			JOptionPane.showMessageDialog(null, "Perfume cadastrado!", "", JOptionPane.INFORMATION_MESSAGE);
@@ -351,5 +357,9 @@ public class TelaCadastrarPerfume implements ActionListener {
 	
 	public JFrame getFrmCadastrarProduto() {
 		return this.frmCadastrarProduto;
+	}
+	
+	public Perfumaria getPerfume() {
+		return this.perfume;
 	}
 }

@@ -39,11 +39,13 @@ public class TelaCadastrarShampoo implements ActionListener {
 	private JButton btnCadastrar = new JButton("Cadastrar");
 	private JButton btnCancelar = new JButton("Cancelar");
 	private JFrame frmCadastrarProduto;
+	private Shampoo shampoo;
 	
 	//Construtor
-	public TelaCadastrarShampoo(JFrame frmCadastrarProduto) {
+	public TelaCadastrarShampoo(JFrame frmCadastrarProduto, Shampoo shampoo) {
 		//Configura os componentes da JFrame da tela de cadastro de shampoo
 		this.frmCadastrarProduto = frmCadastrarProduto;
+		this.shampoo = shampoo;
 		this.frmCadastrarShampoo.setBounds(100, 100, 539, 488);
 		this.frmCadastrarShampoo.getContentPane().setLayout(null);
 		this.frmCadastrarShampoo.setResizable(false);
@@ -206,6 +208,11 @@ public class TelaCadastrarShampoo implements ActionListener {
 				this.getTxtCondicao().requestFocusInWindow();
 			}
 			
+			if (this.getShampoo() != null) {
+				//Deleta o shampoo e faz o recadastro
+				ConjuntoShampoo.deletarShampoo(shampoo);
+			}
+			
 			//Armazena os valores com as devidas conversões e tratamentos
 			double preco = Double.valueOf(this.getTxtPreco().getText()).doubleValue();
 			double volume = Double.valueOf(this.getTxtVolume().getText()).doubleValue();
@@ -243,91 +250,94 @@ public class TelaCadastrarShampoo implements ActionListener {
 	
 	//Métodos acessores
 	public JFrame getFrmCadastrarShampoo() {
-		return frmCadastrarShampoo;
+		return this.frmCadastrarShampoo;
 	}
 
 	public JLabel getLblPreco() {
-		return lblPreco;
+		return this.lblPreco;
 	}
 
 	public JTextField getTxtPreco() {
-		return txtPreco;
+		return this.txtPreco;
 	}
 
 	public JLabel getLblVolume() {
-		return lblVolume;
+		return this.lblVolume;
 	}
 
 	public JTextField getTxtVolume() {
-		return txtVolume;
+		return this.txtVolume;
 	}
 
 	public JLabel getLblCodigo() {
-		return lblCodigo;
+		return this.lblCodigo;
 	}
 
 	public JTextField getTxtCodigo() {
-		return txtCodigo;
+		return this.txtCodigo;
 	}
 
 	public JLabel getLblMarca() {
-		return lblMarca;
+		return this.lblMarca;
 	}
 
 	public JTextField getTxtMarca() {
-		return txtMarca;
+		return this.txtMarca;
 	}
 
 	public JLabel getLblLinha() {
-		return lblLinha;
+		return this.lblLinha;
 	}
 
 	public JTextField getTxtLinha() {
-		return txtLinha;
+		return this.txtLinha;
 	}
 
 	public JLabel getLblEstoque() {
-		return lblEstoque;
+		return this.lblEstoque;
 	}
 
 	public JTextField getTxtEstoque() {
-		return txtEstoque;
+		return this.txtEstoque;
 	}
 
 	public JLabel getLblTipo() {
-		return lblTipo;
+		return this.lblTipo;
 	}
 
 	public JTextField getTxtTipo() {
-		return txtTipo;
+		return this.txtTipo;
 	}
 
 	public JLabel getLblPropriedades() {
-		return lblPropriedades;
+		return this.lblPropriedades;
 	}
 
 	public JTextField getTxtPropriedades() {
-		return txtPropriedades;
+		return this.txtPropriedades;
 	}
 
 	public JLabel getLblCondicao() {
-		return lblCondicao;
+		return this.lblCondicao;
 	}
 
 	public JTextField getTxtCondicao() {
-		return txtCondicao;
+		return this.txtCondicao;
 	}
 
 	public JButton getBtnCadastrar() {
-		return btnCadastrar;
+		return this.btnCadastrar;
 	}
 
 	public JButton getBtnCancelar() {
-		return btnCancelar;
+		return this.btnCancelar;
 	}
 
 	public JFrame getFrmCadastrarProduto() {
-		return frmCadastrarProduto;
+		return this.frmCadastrarProduto;
 	}
 
+	public Shampoo getShampoo() {
+		return this.shampoo;
+	}
 }

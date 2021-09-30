@@ -35,11 +35,13 @@ public class TelaCadastrarSaboneteLiquido implements ActionListener {
 	private JButton btnCadastrar = new JButton("Cadastrar");
 	private JButton btnCancelar = new JButton("Cancelar");
 	private JFrame frmCadastrarProduto;
+	private SaboneteLiquido sabonete;
 	
 	//Construtor
-	public TelaCadastrarSaboneteLiquido(JFrame frmCadastrarProduto) {
+	public TelaCadastrarSaboneteLiquido(JFrame frmCadastrarProduto, SaboneteLiquido sabonete) {
 		//Configura os componentes da JFrame da tela de cadastro de sabonete líquido
 		this.frmCadastrarProduto = frmCadastrarProduto;
+		this.sabonete = sabonete;
 		this.frmCadastrarSaboneteLiquido.setBounds(100, 100, 538, 417);
 		this.frmCadastrarSaboneteLiquido.getContentPane().setLayout(null);
 		this.frmCadastrarSaboneteLiquido.setResizable(false);
@@ -174,6 +176,11 @@ public class TelaCadastrarSaboneteLiquido implements ActionListener {
 				this.getTxtPropriedades().requestFocusInWindow();
 			}
 			
+			if (this.getSaboneteLiquido() != null) {
+				//Deleta o sabonete líquido e faz o recadastro
+				ConjuntoSaboneteLiquido.deletarSaboneteLiquido(sabonete);
+			}
+			
 			//Armazena os valores com as devidas conversões e tratamentos
 			double preco = Double.valueOf(this.getTxtPreco().getText()).doubleValue();
 			double volume = Double.valueOf(this.getTxtVolume().getText()).doubleValue();
@@ -209,75 +216,79 @@ public class TelaCadastrarSaboneteLiquido implements ActionListener {
 	
 	//Métodos acessores
 	public JFrame getFrmCadastrarSaboneteLiquido() {
-		return frmCadastrarSaboneteLiquido;
+		return this.frmCadastrarSaboneteLiquido;
 	}
 
 	public JLabel getLblPreco() {
-		return lblPreco;
+		return this.lblPreco;
 	}
 
 	public JTextField getTxtPreco() {
-		return txtPreco;
+		return this.txtPreco;
 	}
 
 	public JLabel getLblVolume() {
-		return lblVolume;
+		return this.lblVolume;
 	}
 
 	public JTextField getTxtVolume() {
-		return txtVolume;
+		return this.txtVolume;
 	}
 
 	public JLabel getLblCodigo() {
-		return lblCodigo;
+		return this.lblCodigo;
 	}
 
 	public JTextField getTxtCodigo() {
-		return txtCodigo;
+		return this.txtCodigo;
 	}
 
 	public JLabel getLblMarca() {
-		return lblMarca;
+		return this.lblMarca;
 	}
 
 	public JTextField getTxtMarca() {
-		return txtMarca;
+		return this.txtMarca;
 	}
 
 	public JLabel getLblLinha() {
-		return lblLinha;
+		return this.lblLinha;
 	}
 
 	public JTextField getTxtLinha() {
-		return txtLinha;
+		return this.txtLinha;
 	}
 
 	public JLabel getLblEstoque() {
-		return lblEstoque;
+		return this.lblEstoque;
 	}
 
 	public JTextField getTxtEstoque() {
-		return txtEstoque;
+		return this.txtEstoque;
 	}
 
 	public JLabel getLblPropriedades() {
-		return lblPropriedades;
+		return this.lblPropriedades;
 	}
 
 	public JTextField getTxtPropriedades() {
-		return txtPropriedades;
+		return this.txtPropriedades;
 	}
 
 	public JButton getBtnCadastrar() {
-		return btnCadastrar;
+		return this.btnCadastrar;
 	}
 
 	public JButton getBtnCancelar() {
-		return btnCancelar;
+		return this.btnCancelar;
 	}
 
 	public JFrame getFrmCadastrarProduto() {
-		return frmCadastrarProduto;
+		return this.frmCadastrarProduto;
+	}
+	
+	public SaboneteLiquido getSaboneteLiquido() {
+		return this.sabonete;
 	}
 	
 }

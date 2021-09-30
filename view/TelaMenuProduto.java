@@ -106,16 +106,18 @@ public class TelaMenuProduto implements ActionListener {
 		//Inicia os eventos sobre a edição de informações de um produto
 		if (botao == this.getBtnEditarInformacoesProduto()) {
 			opcao = 3;
+			new TelaLogin(this.getfrmMenuProduto(), opcao);
 		}
 		
 		//Inicia os eventos sobre listagem de dados dos produtos
 		if (botao == this.getBtnListarDadosProduto()) {
-			
+			new TelaListagem(this.getfrmMenuProduto());
 		}
 		
 		//Inicia os eventos sobre deleção de um produto
 		if (botao == this.getBtnDeletarUmProduto()) {
 			opcao = 4;
+			new TelaLogin(this.getfrmMenuProduto(), opcao);
 		}
 		
 		//Inicia os eventos sobre o botão voltar

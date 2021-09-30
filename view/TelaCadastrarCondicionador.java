@@ -39,11 +39,13 @@ public class TelaCadastrarCondicionador implements ActionListener {
 	private JButton btnCadastrar = new JButton("Cadastrar");
 	private JButton btnCancelar = new JButton("Cancelar");
 	private JFrame frmCadastrarProduto;
+	private Condicionador condicionador;
 	
 	//Construtor
-	public TelaCadastrarCondicionador(JFrame frmCadastrarProduto) {
+	public TelaCadastrarCondicionador(JFrame frmCadastrarProduto, Condicionador condicionador) {
 		//Configura os componentes da JFrame da tela de cadastro de condicionador
 		this.frmCadastrarProduto = frmCadastrarProduto;
+		this.condicionador = condicionador;
 		this.frmCadastrarCondicionador.setBounds(100, 100, 539, 488);
 		this.frmCadastrarCondicionador.getContentPane().setLayout(null);
 		this.frmCadastrarCondicionador.setResizable(false);
@@ -205,6 +207,11 @@ public class TelaCadastrarCondicionador implements ActionListener {
 				this.getTxtCondicao().requestFocusInWindow();
 			}
 			
+			if (this.getCondicionador() != null) {
+				//Deleta o condicionador e faz o recadastro
+				ConjuntoCondicionador.deletarCondicionador(condicionador);
+			}
+			
 			//Armazena os valores com as devidas conversões e tratamentos
 			double preco = Double.valueOf(this.getTxtPreco().getText()).doubleValue();
 			double volume = Double.valueOf(this.getTxtVolume().getText()).doubleValue();
@@ -350,4 +357,7 @@ public class TelaCadastrarCondicionador implements ActionListener {
 		return frmCadastrarProduto;
 	}
 
+	public Condicionador getCondicionador() {
+		return this.condicionador;
+	}
 }

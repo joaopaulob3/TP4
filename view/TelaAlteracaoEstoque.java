@@ -47,7 +47,7 @@ public class TelaAlteracaoEstoque implements ActionListener {
 		
 		//Configura o label título da janela
 		this.lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		this.lblTitulo.setBounds(119, 25, 311, 40);
+		this.lblTitulo.setBounds(119, 25, 350, 40);
 		this.frmEstoque.getContentPane().add(lblTitulo);
 		
 		//Configura o botão Perfume

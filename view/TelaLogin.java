@@ -102,10 +102,15 @@ public class TelaLogin implements ActionListener {
 				//Chama a tela de cadastrar produto
 				if (this.getOpcao() == 1) {
 					new TelaCadastrarProduto(this.getFrmTelaMenuProduto());
-					
 				//Chama a tela de alteração de estoque de um produto
 				} else if (this.getOpcao() == 2) {
 					new TelaAlteracaoEstoque(this.getFrmTelaMenuProduto());
+				//Chama a tela de edição de dados de um produto
+				} else if (this.getOpcao() == 3) {
+					new TelaEdicao(this.getFrmTelaMenuProduto());
+				//Chama a tela de deleção de um produto
+				} else if (this.getOpcao() == 4) {
+					new TelaDelecao(this.getFrmTelaMenuProduto());
 				}
 				
 			//Mensagem de erro se o Login não for validado	

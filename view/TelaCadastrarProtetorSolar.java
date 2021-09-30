@@ -37,11 +37,13 @@ public class TelaCadastrarProtetorSolar implements ActionListener {
 	private JButton btnCadastrar = new JButton("Cadastrar");
 	private JButton btnCancelar = new JButton("Cancelar");
 	private JFrame frmCadastrarProduto;
+	private ProtetorSolar protetor;
 	
 	//Construtor
-	public TelaCadastrarProtetorSolar(JFrame frmCadastrarProduto) {
+	public TelaCadastrarProtetorSolar(JFrame frmCadastrarProduto, ProtetorSolar protetor) {
 		//Configura os componentes da JFrame da tela de cadastro de protetor solar
 		this.frmCadastrarProduto = frmCadastrarProduto;
+		this.protetor = protetor;
 		this.frmCadastrarProtetorSolar.setBounds(100, 100, 539, 464);
 		this.frmCadastrarProtetorSolar.getContentPane().setLayout(null);
 		this.frmCadastrarProtetorSolar.setResizable(false);
@@ -189,6 +191,11 @@ public class TelaCadastrarProtetorSolar implements ActionListener {
 				this.getTxtFPS().requestFocusInWindow();
 			}
 			
+			if (this.getProtetorSolar() != null) {
+				//Deleta o protetor e faz o recadastro
+				ConjuntoProtetorSolar.deletarProtetorSolar(protetor);
+			}
+			
 			//Armazena os valores com as devidas conversões e tratamentos
 			double preco = Double.valueOf(this.getTxtPreco().getText()).doubleValue();
 			double volume = Double.valueOf(this.getTxtVolume().getText()).doubleValue();
@@ -225,83 +232,86 @@ public class TelaCadastrarProtetorSolar implements ActionListener {
 	
 	//Métodos acessores
 	public JFrame getFrmCadastrarProtetorSolar() {
-		return frmCadastrarProtetorSolar;
+		return this.frmCadastrarProtetorSolar;
 	}
 
 	public JLabel getLblPreco() {
-		return lblPreco;
+		return this.lblPreco;
 	}
 
 	public JTextField getTxtPreco() {
-		return txtPreco;
+		return this.txtPreco;
 	}
 
 	public JLabel getLblVolume() {
-		return lblVolume;
+		return this.lblVolume;
 	}
 
 	public JTextField getTxtVolume() {
-		return txtVolume;
+		return this.txtVolume;
 	}
 
 	public JLabel getLblCodigo() {
-		return lblCodigo;
+		return this.lblCodigo;
 	}
 
 	public JTextField getTxtCodigo() {
-		return txtCodigo;
+		return this.txtCodigo;
 	}
 
 	public JLabel getLblMarca() {
-		return lblMarca;
+		return this.lblMarca;
 	}
 
 	public JTextField getTxtMarca() {
-		return txtMarca;
+		return this.txtMarca;
 	}
 
 	public JLabel getLblLinha() {
-		return lblLinha;
+		return this.lblLinha;
 	}
 
 	public JTextField getTxtLinha() {
-		return txtLinha;
+		return this.txtLinha;
 	}
 
 	public JLabel getLblEstoque() {
-		return lblEstoque;
+		return this.lblEstoque;
 	}
 
 	public JTextField getTxtEstoque() {
-		return txtEstoque;
+		return this.txtEstoque;
 	}
 
 	public JLabel getLblPropriedades() {
-		return lblPropriedades;
+		return this.lblPropriedades;
 	}
 
 	public JTextField getTxtPropriedades() {
-		return txtPropriedades;
+		return this.txtPropriedades;
 	}
 
 	public JLabel getLblFPS() {
-		return lblFPS;
+		return this.lblFPS;
 	}
 
 	public JTextField getTxtFPS() {
-		return txtFPS;
+		return this.txtFPS;
 	}
 
 	public JButton getBtnCadastrar() {
-		return btnCadastrar;
+		return this.btnCadastrar;
 	}
 
 	public JButton getBtnCancelar() {
-		return btnCancelar;
+		return this.btnCancelar;
 	}
 
 	public JFrame getFrmCadastrarProduto() {
-		return frmCadastrarProduto;
+		return this.frmCadastrarProduto;
 	}
 	
+	public ProtetorSolar getProtetorSolar() {
+		return this.protetor;
+	}
 }

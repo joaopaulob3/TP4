@@ -35,11 +35,13 @@ public class TelaCadastrarHidratante implements ActionListener {
 	private JButton btnCadastrar = new JButton("Cadastrar");
 	private JButton btnCancelar = new JButton("Cancelar");
 	private JFrame frmCadastrarProduto;
+	private Hidratante hidratante;
 	
 	//Construtor
-	public TelaCadastrarHidratante(JFrame frmCadastrarProduto) {
+	public TelaCadastrarHidratante(JFrame frmCadastrarProduto, Hidratante hidratante) {
 		//Configura os componentes da JFrame da tela de cadastro de hidratante
 		this.frmCadastrarProduto = frmCadastrarProduto;
+		this.hidratante = hidratante;
 		this.frmCadastrarHidratante.setBounds(100, 100, 537, 430);
 		this.frmCadastrarHidratante.getContentPane().setLayout(null);
 		this.frmCadastrarHidratante.setResizable(false);
@@ -175,6 +177,11 @@ public class TelaCadastrarHidratante implements ActionListener {
 				this.getTxtTipoDePele().requestFocusInWindow();
 			}
 			
+			if (this.getHidratante() != null) {
+				//Deleta o hidratante e faz o recadastro
+				ConjuntoHidratante.deletarHidratante(hidratante);
+			}
+			
 			//Armazena os valores com as devidas conversões e tratamentos
 			double preco = Double.valueOf(this.getTxtPreco().getText()).doubleValue();
 			double volume = Double.valueOf(this.getTxtVolume().getText()).doubleValue();
@@ -210,74 +217,78 @@ public class TelaCadastrarHidratante implements ActionListener {
 	
 	//Métodos acessores
 	public JFrame getFrmCadastrarHidratante() {
-		return frmCadastrarHidratante;
+		return this.frmCadastrarHidratante;
 	}
 
 	public JLabel getLblPreco() {
-		return lblPreco;
+		return this.lblPreco;
 	}
 
 	public JTextField getTxtPreco() {
-		return txtPreco;
+		return this.txtPreco;
 	}
 
 	public JLabel getLblVolume() {
-		return lblVolume;
+		return this.lblVolume;
 	}
 
 	public JTextField getTxtVolume() {
-		return txtVolume;
+		return this.txtVolume;
 	}
 
 	public JLabel getLblCodigo() {
-		return lblCodigo;
+		return this.lblCodigo;
 	}
 
 	public JTextField getTxtCodigo() {
-		return txtCodigo;
+		return this.txtCodigo;
 	}
 
 	public JLabel getLblMarca() {
-		return lblMarca;
+		return this.lblMarca;
 	}
 
 	public JTextField getTxtMarca() {
-		return txtMarca;
+		return this.txtMarca;
 	}
 
 	public JLabel getLblLinha() {
-		return lblLinha;
+		return this.lblLinha;
 	}
 
 	public JTextField getTxtLinha() {
-		return txtLinha;
+		return this.txtLinha;
 	}
 
 	public JLabel getLblEstoque() {
-		return lblEstoque;
+		return this.lblEstoque;
 	}
 
 	public JTextField getTxtEstoque() {
-		return txtEstoque;
+		return this.txtEstoque;
 	}
 
 	public JLabel getLblTipoDePele() {
-		return lblTipoDePele;
+		return this.lblTipoDePele;
 	}
 
 	public JTextField getTxtTipoDePele() {
-		return txtTipoDePele;
+		return this.txtTipoDePele;
 	}
 
 	public JButton getBtnCadastrar() {
-		return btnCadastrar;
+		return this.btnCadastrar;
 	}
 
 	public JButton getBtnCancelar() {
-		return btnCancelar;
+		return this.btnCancelar;
 	}
 
 	public JFrame getFrmCadastrarProduto() {
-		return frmCadastrarProduto;
+		return this.frmCadastrarProduto;
+	}
+	
+	public Hidratante getHidratante() {
+		return this.hidratante;
 	}
 }
