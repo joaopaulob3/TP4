@@ -154,6 +154,7 @@ public class TelaListagem implements ActionListener {
 		
 		//Inicia os eventos sobre o botão voltar
 		if (botao == this.getBtnVoltar()) {
+			this.getFrmListagem().dispose();
 			this.getTelaMenuProduto().setVisible(true);
 		}
 	}

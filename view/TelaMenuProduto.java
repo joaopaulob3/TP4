@@ -94,41 +94,42 @@ public class TelaMenuProduto implements ActionListener {
 		//Inicia os eventos sobre o cadastro de um produto
 		if (botao == this.getBtnCadastrarProduto()) {
 			opcao = 1;
-			new TelaLogin(this.getfrmMenuProduto(), opcao);
+			new TelaLogin(this.getFrmMenuProduto(), opcao);
 		}
 		
 		//Inicia os eventos sobre o estoque
 		if (botao == this.getBtnAumentarOuDiminuirEstoque()) {
 			opcao = 2;
-			new TelaLogin(this.getfrmMenuProduto(), opcao);
+			new TelaLogin(this.getFrmMenuProduto(), opcao);
 		}
 		
 		//Inicia os eventos sobre a edição de informações de um produto
 		if (botao == this.getBtnEditarInformacoesProduto()) {
 			opcao = 3;
-			new TelaLogin(this.getfrmMenuProduto(), opcao);
+			new TelaLogin(this.getFrmMenuProduto(), opcao);
 		}
 		
 		//Inicia os eventos sobre listagem de dados dos produtos
 		if (botao == this.getBtnListarDadosProduto()) {
-			new TelaListagem(this.getfrmMenuProduto());
+			this.getFrmMenuProduto().dispose();
+			new TelaListagem(this.getFrmMenuProduto());
 		}
 		
 		//Inicia os eventos sobre deleção de um produto
 		if (botao == this.getBtnDeletarUmProduto()) {
 			opcao = 4;
-			new TelaLogin(this.getfrmMenuProduto(), opcao);
+			new TelaLogin(this.getFrmMenuProduto(), opcao);
 		}
 		
 		//Inicia os eventos sobre o botão voltar
 		if (botao == this.getBtnVoltar()) {
-			this.getfrmMenuProduto().dispose();
+			this.getFrmMenuProduto().dispose();
 			this.getFrmTelaMenuInicial().setVisible(true);
 		}
 	}
 	
 	//Métodos acessores
-	public JFrame getfrmMenuProduto() {
+	public JFrame getFrmMenuProduto() {
 		return frmMenuProduto;
 	}
 	public JButton getBtnCadastrarProduto() {

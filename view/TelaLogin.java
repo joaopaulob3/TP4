@@ -111,6 +111,15 @@ public class TelaLogin implements ActionListener {
 				//Chama a tela de deleção de um produto
 				} else if (this.getOpcao() == 4) {
 					new TelaDelecao(this.getFrmTelaMenuProduto());
+				//Chama a tela de editar informações de um cliente
+				} else if (this.getOpcao() == 5) {
+					
+				//Chama a tela de listar dados dos clientes	
+				} else if (this.getOpcao() == 6) {
+					
+				//Chama a tela de deleção de um cliente
+				} else if (this.getOpcao() == 7) {
+					
 				}
 				
 			//Mensagem de erro se o Login não for validado	

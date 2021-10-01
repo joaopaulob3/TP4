@@ -115,7 +115,7 @@ public class TelaMenuInicial implements ActionListener {
 		
 		//Inicia os eventos sobre o botão Cliente
 		if (botao == this.getBtnCliente()) {
-			
+			new TelaMenuCliente(this.getFrmMenuInicial());
 		}
 		
 		//Inicia os eventos sobre o botão Compra
