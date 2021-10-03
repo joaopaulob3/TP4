@@ -80,33 +80,33 @@ public class TelaMenuCliente implements ActionListener {
 		//Declarações
 		int opcao;
 		
-		this.getFrmMenuCliente().dispose();
-		
 		//Armazena o botão escolhido
 		JButton botao = (JButton) e.getSource();
 		
 		//Inicia os eventos sobre o botão cadastrar um cliente
 		if (botao == this.getBtnCadastrarCliente()) {
+			this.getFrmMenuCliente().dispose();
 			new TelaCadastroCliente(this.getFrmMenuCliente());
 		}
 		
 		//Inicia os eventos sobre o botão editar informações de um cliente
 		if (botao == this.getBtnEditarInformaesCliente()) {
-			
+			new TelaLogin(this.getFrmMenuCliente(), 5);
 		}
 		
 		//Inicia os eventos sobre o botão listar dados dos clientes
 		if (botao == this.getBtnListarDadosClientes()) {
-			
+			new TelaLogin(this.getFrmMenuCliente(), 6);
 		}
 		
 		//Inicia os eventos sobre o botão deletar um cliente
 		if (botao == this.getBtnDeletarUmCliente()) {
-			
+			new TelaLogin(this.getFrmMenuCliente(), 7);
 		}
 		
 		//Inicia os eventos sobre o botão voltar
 		if (botao == this.getBtnVoltar()) {
+			this.getFrmMenuCliente().dispose();
 			this.getFrmTelaMenuInicial().setVisible(true);
 		}
 	}

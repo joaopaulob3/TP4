@@ -11,6 +11,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import controller.ConjuntoCliente;
+
 public class TelaLogin implements ActionListener {
 	//Atributos
 	private JFrame frmTelaLogin = new JFrame("Login");
@@ -21,13 +23,13 @@ public class TelaLogin implements ActionListener {
 	private JPasswordField campoSenha = new JPasswordField();
 	private JButton btnEntrar = new JButton("Entrar");
 	private JButton btnCancelar = new JButton("Cancelar");
-	private JFrame frmTelaMenuProduto;
+	private JFrame telaMenu;
 	private int opcao;
 	
 	//Construtor
-	public TelaLogin(JFrame telaMenuProduto, int opcao) {
+	public TelaLogin(JFrame telaMenu, int opcao) {
 		//Configura os componentes da JFrame Tela de login
-		this.frmTelaMenuProduto = telaMenuProduto;
+		this.telaMenu = telaMenu;
 		this.opcao = opcao;
 		this.frmTelaLogin.setBounds(100, 100, 389, 262);
 		this.frmTelaLogin.getContentPane().setLayout(null);
@@ -97,29 +99,56 @@ public class TelaLogin implements ActionListener {
 				
 				//Oculta as janelas de Login e MenuProduto
 				this.getFrmTelaLogin().dispose();
-				this.getFrmTelaMenuProduto().dispose();
+				this.getTelaMenu().dispose();
 				
 				//Chama a tela de cadastrar produto
 				if (this.getOpcao() == 1) {
-					new TelaCadastrarProduto(this.getFrmTelaMenuProduto());
+					new TelaCadastrarProduto(this.getTelaMenu());
+					
 				//Chama a tela de alteração de estoque de um produto
 				} else if (this.getOpcao() == 2) {
-					new TelaAlteracaoEstoque(this.getFrmTelaMenuProduto());
+					new TelaAlteracaoEstoque(this.getTelaMenu());
+					
 				//Chama a tela de edição de dados de um produto
 				} else if (this.getOpcao() == 3) {
-					new TelaEdicao(this.getFrmTelaMenuProduto());
+					new TelaEdicaoProduto(this.getTelaMenu());
+					
 				//Chama a tela de deleção de um produto
 				} else if (this.getOpcao() == 4) {
-					new TelaDelecao(this.getFrmTelaMenuProduto());
+					new TelaDelecaoProduto(this.getTelaMenu());
+					
 				//Chama a tela de editar informações de um cliente
 				} else if (this.getOpcao() == 5) {
+					//Se há clientes no sistema, eles serão listados
+					if (ConjuntoCliente.temCliente()) {
+						TelaListaClientes telaListaClientes = new TelaListaClientes(ConjuntoCliente.getListaClientes());
+						new TelaPesquisaPorCPF(telaListaClientes.getJanela() ,this.getTelaMenu(), 1);
+					} else {
+						JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum cliente no sistema!", "", JOptionPane.INFORMATION_MESSAGE);
+						this.getTelaMenu().setVisible(true);
+					}
 					
 				//Chama a tela de listar dados dos clientes	
 				} else if (this.getOpcao() == 6) {
+					//Se há clientes no sistema, eles serão listados
+					if (ConjuntoCliente.temCliente()) {
+						new TelaListaClientes(ConjuntoCliente.getListaClientes());
+						this.getTelaMenu().setVisible(true);
+					} else {
+						JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum cliente no sistema!", "", JOptionPane.INFORMATION_MESSAGE);
+						this.getTelaMenu().setVisible(true);
+					}
 					
 				//Chama a tela de deleção de um cliente
 				} else if (this.getOpcao() == 7) {
-					
+					//Se há clientes no sistema, eles serão listados
+					if (ConjuntoCliente.temCliente()) {
+						TelaListaClientes telaListaClientes = new TelaListaClientes(ConjuntoCliente.getListaClientes());
+						new TelaPesquisaPorCPF(telaListaClientes.getJanela() ,this.getTelaMenu(), 0);
+					} else {
+						JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum cliente no sistema!", "", JOptionPane.INFORMATION_MESSAGE);
+						this.getTelaMenu().setVisible(true);
+					}
 				}
 				
 			//Mensagem de erro se o Login não for validado	
@@ -159,8 +188,8 @@ public class TelaLogin implements ActionListener {
 	public JButton getBtnCancelar() {
 		return this.btnCancelar;
 	}
-	public JFrame getFrmTelaMenuProduto() {
-		return this.frmTelaMenuProduto;
+	public JFrame getTelaMenu() {
+		return this.telaMenu;
 	}
 	public int getOpcao() {
 		return this.opcao;
