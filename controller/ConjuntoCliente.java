@@ -8,6 +8,11 @@ public class ConjuntoCliente {
 	//Criação do ArrayList de objetos do tipo Cliente
 	private static final ArrayList<Cliente> listaClientes = new ArrayList<>();
 	
+	//Método acessor do ArrayList
+	public static ArrayList<Cliente> getListaClientes() {
+		return listaClientes;
+	}
+	
 	//Adicionar o objeto do tipo Cliente no ArrayList
 	public static void cadastrarCliente(Cliente cliente) {
 		listaClientes.add(cliente);
@@ -39,20 +44,5 @@ public class ConjuntoCliente {
 			return true;
 		}
 	}
-	
-	//Lista os dados dos clientes do Arraylist
-	public static void listaClientes() {
-		int i = 1;
-		
-		for (Cliente cliente : listaClientes) {
-			System.out.println("\n################################### " + (i++) + " ###################################");
-			System.out.println(cliente.listarDados());
-			System.out.println("#########################################################################");
-		}
-	}
-	
-	//Retorna a quantidade de objetos do tipo Cliente no ArrayList
-	public static int quantidade() {
-		return listaClientes.size();
-	}
+
 }

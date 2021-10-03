@@ -2,13 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 
-import model.Compra;
-import model.Condicionador;
-import model.Hidratante;
-import model.Perfumaria;
-import model.ProtetorSolar;
-import model.SaboneteLiquido;
-import model.Shampoo;
+import model.*;
 
 public class ConjuntoCompra {
 	//Criação do ArrayList contendo objetos do tipo Compra (com Cliente e Produto)
@@ -51,7 +45,7 @@ public class ConjuntoCompra {
 		}
 	}
 	
-	
+	/*
 	//Lista as compras que um cliente específico realizou
 	public static void listagemCompras(String cpf) {
 		//Declarações
@@ -104,13 +98,13 @@ public class ConjuntoCompra {
 				}
 			}
 		}
-		
+	
 		//Soma dos gastos
 		somaValorGasto += comprasPerfume + comprasHidratante + comprasProtetorSolar + comprasShampoo +
 				comprasCondicionador + comprasSabonteLiquido;
 		System.out.println("\n=========================================================================");
 		System.out.println("Total gasto na loja até o momento: R$" + somaValorGasto);
 		System.out.println("=========================================================================\n");
-	}
-
+		
+		*/
 }

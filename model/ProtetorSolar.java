@@ -31,25 +31,4 @@ public class ProtetorSolar extends Produto{
 		return this.fpsDoProtetorSolar;
 	}
 	
-	//Retorna uma String com os dados do objeto
-	@Override
-	public String listarDados() {
-		return "Marca do protetor solar: " + this.getMarcaDoProduto() + 
-				"\nLinha do protetor solar: " + this.getLinhaDoProduto() + 
-				"\nPropriedades do protetor solar: " + this.getPropriedadesDoProtetorSolar() + 
-				"\nFPS do protetor solar: " + this.getFpsDoProtetorSolar() +
-				"\nCódigo do protetor solar: " + this.getCodigoDoProduto() +
-				"\nPreço do protetor solar: R$" + this.getPrecoDoProduto() +
-				"\nVolume do protetor solar (ml): " + this.getVolumeDoProduto() +
-				"\n-------------------------------------------------------------------------" + 
-				"\nQuantidade no estoque: " + this.getQuantidadeProduto();
-	}
-	
-	//Retorna uma String com os dados relevantes para a listagem das compras
-	@Override
-	public String listarDadosFormaSeletiva() {
-		return "\nMarca do protetor solar: " + this.getMarcaDoProduto() + 
-				"\nCódigo do protetor solar: " + this.getCodigoDoProduto() +
-				"\nPreço do protetor solar: R$" + this.getPrecoDoProduto();
-	}
 }
