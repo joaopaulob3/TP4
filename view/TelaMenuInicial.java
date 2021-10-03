@@ -112,6 +112,7 @@ public class TelaMenuInicial implements ActionListener {
 			new TelaMenuProduto(this.getFrmMenuInicial());
 		}
 		
+		
 		//Inicia os eventos sobre o botão Cliente
 		if (botao == this.getBtnCliente()) {
 			new TelaMenuCliente(this.getFrmMenuInicial());
@@ -125,18 +126,18 @@ public class TelaMenuInicial implements ActionListener {
 	
 	//Métodos acessores
 	public JFrame getFrmMenuInicial() {
-		return this.frmMenuInicial;
+		return frmMenuInicial;
 	}
 	public JLabel getLblTituloInicial() {
-		return this.lblTituloInicial;
+		return lblTituloInicial;
 	}
 	public JButton getBtnProduto() {
-		return this.btnProduto;
+		return btnProduto;
 	}
 	public JButton getBtnCliente() {
-		return this.btnCliente;
+		return btnCliente;
 	}
 	public JButton getBtnCompra() {
-		return this.btnCompra;
+		return btnCompra;
 	}
 }

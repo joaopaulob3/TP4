@@ -40,4 +40,26 @@ public class Shampoo extends Produto{
 		return this.condicaoDosFiosDoShampoo;
 	}
 	
+	//Retorna uma String com os dados do objeto
+	@Override
+	public String listarDados() {
+		return "Marca do shampoo: " + this.getMarcaDoProduto() + 
+				"\nLinha do shampoo: " + this.getLinhaDoProduto() + 
+				"\nTipo de cabelo do shampoo: " + this.getTipoDeCabeloDoShampoo() + 
+				"\nPropriedades do shampoo: " + this.getPropriedadesDoShampoo() + 
+				"\nCondição dos fios do shampoo: " + this.getCondicaoDosFiosDoShampoo() + 
+				"\nCódigo do shampoo: " + this.getCodigoDoProduto() + 
+				"\nPreço do shampoo: R$" + this.getPrecoDoProduto() +
+				"\nVolume do shampoo (ml): " + this.getVolumeDoProduto() +
+				"\n-------------------------------------------------------------------------" + 
+				"\nQuantidade no estoque: " + this.getQuantidadeProduto();
+	}
+	
+	//Retorna uma String com os dados relevantes para a listagem das compras
+	@Override
+	public String listarDadosFormaSeletiva() {
+		return "\nMarca do shampoo: " + this.getMarcaDoProduto() + 
+				"\nCódigo do shampoo: " + this.getCodigoDoProduto() + 
+				"\nPreço do shampoo: R$" + this.getPrecoDoProduto();
+	}
 }
