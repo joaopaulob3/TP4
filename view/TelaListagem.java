@@ -3,8 +3,6 @@ package view;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -33,17 +31,7 @@ public class TelaListagem implements ActionListener {
 		this.frmListagem.setBounds(100, 100, 534, 451);
 		this.frmListagem.getContentPane().setLayout(null);
 		this.frmListagem.setResizable(false);
-		this.frmListagem.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		this.frmListagem.addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent e) {
-				int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente encerrar o programa?", null,
-						JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-				if (resposta == JOptionPane.YES_OPTION) {
-					System.exit(0);
-				}
-			}
-		});
+		this.frmListagem.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		//Configura o label título da pergunta
 		this.lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -111,7 +99,6 @@ public class TelaListagem implements ActionListener {
 				new TelaListaPerfume(ConjuntoPerfumaria.getListaPerfumes());
 			} else {
 				JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum perfume!", "", JOptionPane.WARNING_MESSAGE);
-				this.getFrmListagem().setVisible(true);
 			}
 		}
 		
@@ -122,7 +109,6 @@ public class TelaListagem implements ActionListener {
 				new TelaListaHidratante(ConjuntoHidratante.getListaHidratantes());
 			} else {
 				JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum hidratante!", "", JOptionPane.WARNING_MESSAGE);
-				this.getFrmListagem().setVisible(true);
 			}
 		}
 		
@@ -133,7 +119,6 @@ public class TelaListagem implements ActionListener {
 				new TelaListaProtetorSolar(ConjuntoProtetorSolar.getListaProtetorSolar());
 			} else {
 				JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum protetor solar!", "", JOptionPane.WARNING_MESSAGE);
-				this.getFrmListagem().setVisible(true);
 			}
 		}
 		
@@ -144,7 +129,6 @@ public class TelaListagem implements ActionListener {
 				new TelaListaShampoo(ConjuntoShampoo.getListaShampoos());
 			} else {
 				JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum shampoo!", "", JOptionPane.WARNING_MESSAGE);
-				this.getFrmListagem().setVisible(true);
 			}
 		}
 		
@@ -155,7 +139,6 @@ public class TelaListagem implements ActionListener {
 				new TelaListaCondicionador(ConjuntoCondicionador.getListaCondicionadores());
 			} else {
 				JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum condicionador!", "", JOptionPane.WARNING_MESSAGE);
-				this.getFrmListagem().setVisible(true);
 			}
 		}
 		
@@ -166,7 +149,6 @@ public class TelaListagem implements ActionListener {
 				new TelaListaSaboneteLiquido(ConjuntoSaboneteLiquido.getListaSabonetesLiquido());
 			} else {
 				JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum sabonete líquido!", "", JOptionPane.WARNING_MESSAGE);
-				this.getFrmListagem().setVisible(true);
 			}
 		}
 		

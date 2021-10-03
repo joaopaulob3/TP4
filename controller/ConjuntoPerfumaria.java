@@ -45,4 +45,19 @@ public class ConjuntoPerfumaria{
 		}
 	}
 	
+	//Lista os dados dos perfumes do Arraylist
+	public static void listaPerfumes() {
+		int i = 1;
+		
+		for (Perfumaria perfume : listaPerfumes) {
+			System.out.println("\n################################### " + (i++) + " ###################################");
+			System.out.println(perfume.listarDados());
+			System.out.println("#########################################################################");
+		}
+	}
+	
+	//Retorna a quantidade de objetos do tipo Perfumaria no ArrayList
+	public static int quantidade() {
+		return listaPerfumes.size();
+	}
 }

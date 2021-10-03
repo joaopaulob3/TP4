@@ -108,18 +108,19 @@ public class TelaAlteracaoEstoque implements ActionListener {
 		//Armazena o botão escolhido
 		JButton botao = (JButton) e.getSource();
 		
+		//Oculta a janela de alteração de estoque
+		this.getFrmEstoque().dispose();
+		
 		//Inicia os eventos sobre alteração de estoque de perfume
 		if (botao == this.getBtnPerfume()) {
 			//Se há perfume no sistema, podemos prosseguir
 			if (ConjuntoPerfumaria.temPerfume()) {
-				this.getFrmEstoque().dispose();
 				//Lista os perfumes no sistema e aciona a tela de pesquisa por código
 				opcao = 1;
 				TelaListaPerfume telaListaPerfume = new TelaListaPerfume(ConjuntoPerfumaria.getListaPerfumes());
 				new TelaPesquisaPorCodigo(this.getFrmEstoque(), opcao, telaListaPerfume.getJanela());
 			} else {
 				JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum perfume!", "", JOptionPane.WARNING_MESSAGE);
-				this.getFrmEstoque().setVisible(true);
 			}
 		}
 		
@@ -127,14 +128,12 @@ public class TelaAlteracaoEstoque implements ActionListener {
 		if (botao == this.getBtnHidratante()) {
 			//Se há hidratante no sistema, podemos prosseguir
 			if (ConjuntoHidratante.temHidratante()) {
-				this.getFrmEstoque().dispose();
 				//Lista os hidratantes do sistema e aciona a tela de pesquisa por código
 				opcao = 2;
 				TelaListaHidratante telaListaHidratante = new TelaListaHidratante(ConjuntoHidratante.getListaHidratantes());
 				new TelaPesquisaPorCodigo(this.getFrmEstoque(), opcao, telaListaHidratante.getJanela());
 			} else {
 				JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum hidratante!", "", JOptionPane.WARNING_MESSAGE);
-				this.getFrmEstoque().setVisible(true);
 			}
 		}
 		
@@ -142,14 +141,12 @@ public class TelaAlteracaoEstoque implements ActionListener {
 		if (botao == this.getBtnProtetorSolar()) {
 			//Se há protetor solar no sistema, podemos prosseguir
 			if (ConjuntoProtetorSolar.temProtetorSolar()) {
-				this.getFrmEstoque().dispose();
 				//Lista os protetores solares do sistema e aciona a tela de pesquisa por código
 				opcao = 3;
 				TelaListaProtetorSolar telaProtetor = new TelaListaProtetorSolar(ConjuntoProtetorSolar.getListaProtetorSolar());
 				new TelaPesquisaPorCodigo(this.getFrmEstoque(), opcao, telaProtetor.getJanela());
 			} else {
 				JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum protetor solar!", "", JOptionPane.WARNING_MESSAGE);
-				this.getFrmEstoque().setVisible(true);
 			}
 		}
 		
@@ -157,14 +154,12 @@ public class TelaAlteracaoEstoque implements ActionListener {
 		if (botao == this.getBtnShampoo()) {
 			//Se há shampoo no sistema, podemos prosseguir
 			if (ConjuntoShampoo.temShampoo()) {
-				this.getFrmEstoque().dispose();
 				//Lista os shampoos do sistema e aciona a tela de pesquisa por código
 				opcao = 4;
 				TelaListaShampoo telaShampoo = new TelaListaShampoo(ConjuntoShampoo.getListaShampoos());
 				new TelaPesquisaPorCodigo(this.getFrmEstoque(), opcao, telaShampoo.getJanela());
 			} else {
 				JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum shampoo!", "", JOptionPane.WARNING_MESSAGE);
-				this.getFrmEstoque().setVisible(true);
 			}
 		}
 		
@@ -172,14 +167,12 @@ public class TelaAlteracaoEstoque implements ActionListener {
 		if (botao == this.getBtnCondicionador()) {
 			//Se há condicionador no sistema, podemos prosseguir
 			if (ConjuntoCondicionador.temCondicionador()) {
-				this.getFrmEstoque().dispose();
 				//Lista os condicionadores do sistema e aciona a tela de pesquisa por código
 				opcao = 5;
 				TelaListaCondicionador telaCondicionador = new TelaListaCondicionador(ConjuntoCondicionador.getListaCondicionadores());
 				new TelaPesquisaPorCodigo(this.getFrmEstoque(), opcao, telaCondicionador.getJanela());
 			} else {
 				JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum condicionador!", "", JOptionPane.WARNING_MESSAGE);
-				this.getFrmEstoque().setVisible(true);
 			}
 		}
 		
@@ -187,20 +180,17 @@ public class TelaAlteracaoEstoque implements ActionListener {
 		if (botao == this.getBtnSaboneteLiquido()) {
 			//Se há sabonete líquido no sistema, podemos prosseguir
 			if (ConjuntoSaboneteLiquido.temSaboneteLiquido()) {
-				this.getFrmEstoque().dispose();
 				//Lista os sabonetes líquido do sistema e aciona a tela de pesquisa por código
 				opcao = 6;
 				TelaListaSaboneteLiquido telaSabonete = new TelaListaSaboneteLiquido(ConjuntoSaboneteLiquido.getListaSabonetesLiquido());
 				new TelaPesquisaPorCodigo(this.getFrmEstoque(), opcao, telaSabonete.getJanela());
 			} else {
 				JOptionPane.showMessageDialog(null, "Ainda não foi cadastrado nenhum sabonete líquido!", "", JOptionPane.WARNING_MESSAGE);
-				this.getFrmEstoque().setVisible(true);
 			}
 		}
 		
 		//Inicia os eventos sobre o botão voltar
 		if (botao == this.getBtnVoltar()) {
-			this.getFrmEstoque().dispose();
 			this.getFrmMenuProduto().setVisible(true);
 		}
 	}

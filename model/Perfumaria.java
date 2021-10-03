@@ -47,5 +47,28 @@ public class Perfumaria extends Produto{
 	public String getSubfamiliaDoPerfume() {
 		return this.subfamiliaDoPerfume;
 	}
-
+	
+	//Retorna uma String com os dados do objeto
+	@Override
+	public String listarDados() {
+		return "Marca do perfume: " + this.getMarcaDoProduto() + 
+				"\nLinha do perfume: " + this.getLinhaDoProduto() + 
+				"\nCategoria do perfume: " + this.getCategoriaDoPerfume() + 
+				"\nPropriedades do perfume: " + this.getPropriedadesDoPerfume() + 
+				"\nFamília olfativa do perfume: " + this.getFamiliaOlfativaDoPerfume() +
+				"\nSubfamília do perfume: " + this.getSubfamiliaDoPerfume() +
+				"\nCódigo do perfume: " + this.getCodigoDoProduto() +
+				"\nPreço do perfume: R$" + this.getPrecoDoProduto() +
+				"\nVolume do perfume (ml): " + this.getVolumeDoProduto() +
+				"\n-------------------------------------------------------------------------" + 
+				"\nQuantidade no estoque: " + this.getQuantidadeProduto();
+	}
+	
+	//Retorna uma String com os dados relevantes para a listagem das compras
+	@Override
+	public String listarDadosFormaSeletiva() {
+		return "\nMarca do perfume: " + this.getMarcaDoProduto() + 
+				"\nCódigo do perfume: " + this.getCodigoDoProduto() +
+				"\nPreço do perfume: R$" + this.getPrecoDoProduto();
+	}
 }

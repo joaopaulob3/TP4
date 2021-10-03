@@ -130,28 +130,28 @@ public class TelaMenuProduto implements ActionListener {
 	
 	//Métodos acessores
 	public JFrame getFrmMenuProduto() {
-		return this.frmMenuProduto;
+		return frmMenuProduto;
 	}
 	public JButton getBtnCadastrarProduto() {
-		return this.btnCadastrarProduto;
+		return btnCadastrarProduto;
 	}
 	public JButton getBtnAumentarOuDiminuirEstoque() {
-		return this.btnAumentarOuDiminuirEstoque;
+		return btnAumentarOuDiminuirEstoque;
 	}
 	public JButton getBtnEditarInformacoesProduto() {
-		return this.btnEditarInformacoesProduto;
+		return btnEditarInformacoesProduto;
 	}
 	public JButton getBtnListarDadosProduto() {
-		return this.btnListarDadosProduto;
+		return btnListarDadosProduto;
 	}
 	public JButton getBtnDeletarUmProduto() {
-		return this.btnDeletarUmProduto;
+		return btnDeletarUmProduto;
 	}
 	public JButton getBtnVoltar() {
-		return this.btnVoltar;
+		return btnVoltar;
 	}
 	public JFrame getFrmTelaMenuInicial() {
-		return this.frmTelaMenuInicial;
+		return frmTelaMenuInicial;
 	}
 
 }
